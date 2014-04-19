@@ -3,9 +3,10 @@
   "version": "0.0.0",
   "private": true,
   "dependencies": {
-    "coffee-script": "~1.6.2",
     "socket.io": "~0.9.16",
     "express": "~3.2.6",
-    "jade": "~0.31.2"
+    "jade": "~0.31.2",
+    "coffee-script": "~1.6.2",
+    "tumblr": "~0.4.1"
   }
 }
