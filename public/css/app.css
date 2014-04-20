@@ -17,11 +17,13 @@
 
 .menu > li {
   display: inline;
+  padding: .5em;
+  margin: 0;
 }
 
 .menu > li:before {
   content: "|";
-  padding-right: 0.3em;
+  padding-right: 0.5em;
 }
 
 .menu > li:nth-child(1):before {
