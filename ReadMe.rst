@@ -1,7 +1,12 @@
 AngularJS + Socket IO, Express, Node
 =======================================
+:created: 2014-04-19
+:url: git@github.com:dotmpe/angular-socket-io-seed.git
+
 seed project
 -------------
+Forked from https://github.com/btford/angular-socket-io-seed
+
 Frontend
   - Angular JS.
   - Templates through Jade backend?
@@ -10,6 +15,8 @@ Backend
   - Socket IO
   - Express
   - Node
+
+- `Original ReadMe Seed project <ReadMe-Seed.md>`_
 
 Installation and run::
   
@@ -36,3 +43,6 @@ master
 
   f_passport
     - Looking at passport module for authentication (OAuth etc)
+
+
+
