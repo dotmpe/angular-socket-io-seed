@@ -8,7 +8,8 @@ seed project
 Forked from https://github.com/btford/angular-socket-io-seed
 
 Frontend
-  - Angular JS.
+  - AngularJS
+  - JQuery & Bootstrap
   - Templates through Jade backend?
 
     TODO: read more about ``btford.socket-io`` in 
@@ -17,7 +18,7 @@ Frontend
 Backend
   - Socket IO
   - Express
-  - Node
+  - Node.js
 
 - `Original Seed project ReadMe <ReadMe-Seed.md>`_
 
