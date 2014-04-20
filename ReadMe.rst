@@ -16,7 +16,7 @@ Backend
   - Express
   - Node
 
-- `Original ReadMe Seed project <ReadMe-Seed.md>`_
+- `Original Seed project ReadMe <ReadMe-Seed.md>`_
 
 Installation and run::
   
@@ -39,10 +39,11 @@ master
     - Figure out OAuth2 first.
 
   f_oauth2
-    - Need to get federated login.
+    - Need to get federated login. OAuth2 working easily, Oauth1 too
+      complicated, use librar: Passport.
 
   f_passport
-    - Looking at passport module for authentication (OAuth etc)
+    - Looking at passport module for authentication, tumblr module.
 
 
 
