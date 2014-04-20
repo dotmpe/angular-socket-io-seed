@@ -32,7 +32,10 @@ Installation and run::
 Branch docs
 ~~~~~~~~~~~
 master
-  Original seed project.
+  - Mostly original seed project. 
+  - Added underscore utils at backend.
+  - Removed cached bower_components from GIT, added bootstrap CSS/JS at
+    frontend using bower.
 
   f_coffee
     - Started feature branch  for coffeescript. 

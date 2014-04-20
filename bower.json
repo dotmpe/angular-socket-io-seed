@@ -18,7 +18,7 @@
     "bootstrap": "~3.1.1"
   },
   "authors": [
-    "B. van Berkum <berend@brixcrm.nl>"
+    "Berend (.mpe) <berend.van.berkum@gmail.com>"
   ],
   "main": "app.js",
   "moduleType": [
