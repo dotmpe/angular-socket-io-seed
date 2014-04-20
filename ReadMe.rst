@@ -46,6 +46,6 @@ master
     - Need to get federated login. OAuth2 working easily, Oauth1 too
       complicated, use library: Passport.
 
-  f_passport
-    - Looking at passport module for authentication, tumblr module.
+    f_passport
+      - Looking at passport module for authentication, tumblr module.
 
