@@ -60,7 +60,8 @@ util.routesFromObj(app, '/tumblr/', tumblr);
 // redirect all others to the index (HTML5 history)
 app.get('*', routes.index);
 
-// Socket.io Communication
+// Initialize Socket.io Communication: 
+// as soon as client connects set up backend messages (push events)
 io.sockets.on('connection', require('./routes/socket'));
 
 /**
