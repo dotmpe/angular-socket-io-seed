@@ -4,11 +4,26 @@
   "ignore": [
     "**/.*",
     "node_modules",
-    "components"
+    "components",
+    "bower_components",
+    "public/bower_components",
+    "test",
+    "tests"
   ],
   "dependencies": {
     "angular": "~1.2.14",
     "angular-socket-io": "~0.3.0",
-    "angular-route": "~1.2.14"
-  }
+    "angular-route": "~1.2.14",
+    "jquery": "~2.1.0",
+    "bootstrap": "~3.1.1"
+  },
+  "authors": [
+    "B. van Berkum <berend@brixcrm.nl>"
+  ],
+  "main": "app.js",
+  "moduleType": [
+    "node"
+  ],
+  "license": "MIT",
+  "private": true
 }
