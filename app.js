@@ -51,10 +51,22 @@ app.get('/partials/:name', routes.partials);
 // JSON API
 app.get('/api/name', api.name);
 
+function dir(obj) {
+	var r = [];
+	for (x in obj) {
+		if (obj.hasOwnProperty(x)) {
+			r.push(x);
+		}
+	}
+	return r;
+}
+
 // OAuth2
-app.get('/user/name', user.name)
-app.get('/user/auth', user.auth)
-app.get('/user/callback', user.callback)
+var names = dir(user);
+for (i in names) {
+	console.log("Adding route /user/"+names[i]);
+	app.get('/user/'+names[i], user[names[i]]);
+}
 
 // redirect all others to the index (HTML5 history)
 app.get('*', routes.index);
