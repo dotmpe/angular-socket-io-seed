@@ -40,11 +40,11 @@ master
 
   f_tumblr
     - Started feature branch for tumblr.
-    - Figure out OAuth2 first.
+    - Figure out OAuth first.
 
   f_oauth2
     - Need to get federated login. OAuth2 working easily, Oauth1 too
-      complicated, use librar: Passport.
+      complicated, use library: Passport.
 
   f_passport
     - Looking at passport module for authentication, tumblr module.
