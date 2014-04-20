@@ -7,6 +7,7 @@ var express = require('express'),
   routes = require('./routes'),
   api = require('./routes/api'),
   http = require('http'),
+  _ = require('underscore'),
   path = require('path');
 
 var app = module.exports = express();
