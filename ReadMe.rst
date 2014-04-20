@@ -26,3 +26,6 @@ master
 
   f_oauth2
     - Need to get federated login.
+
+  f_passport
+    - Looking at passport module for authentication (OAuth etc)
