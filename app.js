@@ -11,8 +11,9 @@ var express = require('express'),
   user = require('./routes/user'),
   tumblr = require('./routes/tumblr'),
   http = require('http'),
-  path = require('path'),
-  util = require('./server/util');
+  util = require('./server/util'),
+  _ = require('underscore'),
+  path = require('path');
 
 var app = module.exports = express();
 var server = require('http').createServer(app);
