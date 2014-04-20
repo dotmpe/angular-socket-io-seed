@@ -1,2 +1,11 @@
-p This is the partial for view 1.
+p This is a test page.
 p The current time is {{time}}
+
+p
+  | Showing of 'interpolate' filter:
+  | {{ 'Current version is v%VERSION%.' | interpolate }}
+
+div
+  | Angular Socket.io seed app: v
+  span(app-version)
+
