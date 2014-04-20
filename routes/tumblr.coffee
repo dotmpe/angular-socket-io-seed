@@ -1,19 +1,22 @@
 {Blog, User} = require 'tumblr'
 opts = require '../tumblr'
 
-endpoint_auth = "https://www.tumblr.com/oauth/authorize"
 endpoint_reqtoken = "https://www.tumblr.com/oauth/request_token"
+endpoint_auth = "https://www.tumblr.com/oauth/authorize"
+endpoint_acctoke = "http://www.tumblr.com/oauth/access_token"
 
-module.exports
+module.exports =
 	info: (req, res) ->
 		res.send 'foo'
 
 	auth: (req, res) ->
-		qs =
-			response_type: "code"
-			client_id: opts.client_id
-			redirect_uri: opts.redirect_uri
-			scope: scope
+		request_token = _.extend( opts,
+			oauth_signature_method: ''
+			oauth_signature: ''
+			oauth_timestamp: ''
+			oauth_nonce: ''
+			#redirect_uri: opts.redirect_uri
+		)
 		uri = endpoint_auth + "?" + querystring.stringify(qs)
 		res.redirect uri
 	
