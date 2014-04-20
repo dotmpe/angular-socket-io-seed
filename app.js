@@ -9,8 +9,10 @@ var express = require('express'),
   routes = require('./routes'),
   api = require('./routes/api'),
   user = require('./routes/user'),
+  tumblr = require('./routes/tumblr'),
   http = require('http'),
-  path = require('path');
+  path = require('path'),
+  util = require('./server/util');
 
 var app = module.exports = express();
 var server = require('http').createServer(app);
@@ -51,22 +53,8 @@ app.get('/partials/:name', routes.partials);
 // JSON API
 app.get('/api/name', api.name);
 
-function dir(obj) {
-	var r = [];
-	for (x in obj) {
-		if (obj.hasOwnProperty(x)) {
-			r.push(x);
-		}
-	}
-	return r;
-}
-
-// OAuth2
-var names = dir(user);
-for (i in names) {
-	console.log("Adding route /user/"+names[i]);
-	app.get('/user/'+names[i], user[names[i]]);
-}
+util.routesFromObj(app, '/user/', user);
+util.routesFromObj(app, '/tumblr/', tumblr);
 
 // redirect all others to the index (HTML5 history)
 app.get('*', routes.index);

@@ -1,19 +1,29 @@
 {Blog, User} = require 'tumblr'
+opts = require '../tumblr'
 
-oauth =
-  consumer_key: 'OAuth Consumer Key'
-  consumer_secret: 'OAuth Consumer Secret'
-  token: 'OAuth Access Token'
-  token_secret: 'OAuth Access Token Secret'
+endpoint_auth = "https://www.tumblr.com/oauth/authorize"
+endpoint_reqtoken = "https://www.tumblr.com/oauth/request_token"
 
-blog = new Blog 'blog.tumblr.com', oauth
+module.exports
+	info: (req, res) ->
+		res.send 'foo'
 
-blog.text limit: 2, (error, response) ->
-  throw new Error error if error
-  console.log response.posts
+	auth: (req, res) ->
+		qs =
+			response_type: "code"
+			client_id: opts.client_id
+			redirect_uri: opts.redirect_uri
+			scope: scope
+		uri = endpoint_auth + "?" + querystring.stringify(qs)
+		res.redirect uri
+	
+	callback: (req, res) ->
+		client.set 'oauth2_code', req.query.code
+		res.json
+			callback: opts
+			code: req.query.code
+	
+	code: (req, res) ->
+		client.get('oauth2_code', (err, reply) -> res.json(code: reply))
 
-user = new User oauth
 
-user.info (error, response) ->
-  throw new Error error if error
-  console.log response.user
