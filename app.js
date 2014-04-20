@@ -18,6 +18,7 @@ var express = require('express'),
 var app = module.exports = express();
 var server = require('http').createServer(app);
 var io = require('socket.io').listen(server);
+
 /**
  * Configuration
  */
@@ -54,13 +55,16 @@ app.get('/partials/:name', routes.partials);
 // JSON API
 app.get('/api/name', api.name);
 
+// TODO maybe wrap these routes in some kind of express module? 
+// look at Express API for hints 
 util.routesFromObj(app, '/user/', user);
 util.routesFromObj(app, '/tumblr/', tumblr);
 
 // redirect all others to the index (HTML5 history)
 app.get('*', routes.index);
 
-// Socket.io Communication
+// Initialize Socket.io Communication: 
+// as soon as client connects set up backend messages (push events)
 io.sockets.on('connection', require('./routes/socket'));
 
 /**

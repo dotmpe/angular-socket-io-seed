@@ -1,8 +1,10 @@
 /*
- * Serve content over a socket
+ * Backend push messages.
+ * Serve content over a socket.
  */
 
 module.exports = function (socket) {
+
   socket.emit('send:name', {
     name: 'Bob'
   });

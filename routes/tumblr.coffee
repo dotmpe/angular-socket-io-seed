@@ -1,5 +1,5 @@
 {Blog, User} = require 'tumblr'
-opts = require '../tumblr'
+opts = require '../tumblr-config'
 
 endpoint_reqtoken = "https://www.tumblr.com/oauth/request_token"
 endpoint_auth = "https://www.tumblr.com/oauth/authorize"

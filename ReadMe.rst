@@ -6,6 +6,9 @@ Frontend
   - Angular JS.
   - Templates through Jade backend?
 
+    TODO: read more about ``btford.socket-io`` in 
+      ``public/bower_components/angular-socket-io/README.md``
+
 Backend
   - Socket IO
   - Express
@@ -36,3 +39,4 @@ master
 
   f_passport
     - Looking at passport module for authentication (OAuth etc)
+
