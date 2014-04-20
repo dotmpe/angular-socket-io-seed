@@ -10,6 +10,7 @@ var express = require('express'),
   api = require('./routes/api'),
   user = require('./routes/user'),
   http = require('http'),
+  _ = require('underscore'),
   path = require('path');
 
 var app = module.exports = express();
