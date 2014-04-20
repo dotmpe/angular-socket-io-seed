@@ -11,6 +11,13 @@ Backend
   - Express
   - Node
 
+Installation and run::
+  
+  npm install -g bower \
+    && bower install && npm install \
+    && node app.js
+
+
 Branch docs
 ~~~~~~~~~~~
 master
