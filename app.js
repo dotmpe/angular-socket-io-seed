@@ -3,16 +3,18 @@
  * Module dependencies
  */
 
+require('coffee-script')
+
 var express = require('express'),
   routes = require('./routes'),
   api = require('./routes/api'),
+  user = require('./routes/user'),
   http = require('http'),
   path = require('path');
 
 var app = module.exports = express();
 var server = require('http').createServer(app);
 var io = require('socket.io').listen(server);
-
 /**
  * Configuration
  */
@@ -48,6 +50,11 @@ app.get('/partials/:name', routes.partials);
 
 // JSON API
 app.get('/api/name', api.name);
+
+// OAuth2
+app.get('/user/name', user.name)
+app.get('/user/auth', user.auth)
+app.get('/user/callback', user.name)
 
 // redirect all others to the index (HTML5 history)
 app.get('*', routes.index);
