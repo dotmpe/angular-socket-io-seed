@@ -54,7 +54,7 @@ app.get('/api/name', api.name);
 // OAuth2
 app.get('/user/name', user.name)
 app.get('/user/auth', user.auth)
-app.get('/user/callback', user.name)
+app.get('/user/callback', user.callback)
 
 // redirect all others to the index (HTML5 history)
 app.get('*', routes.index);

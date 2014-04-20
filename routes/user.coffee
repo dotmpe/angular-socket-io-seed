@@ -9,7 +9,7 @@ scope = "https://www.googleapis.com/auth/userinfo.profile"
 
 module.exports = 
 	name: (req, res) ->
-		res.json opts
+		res.json name: opts
 	auth: (req, res) ->
 		qs =
 			response_type: "code"
@@ -19,5 +19,6 @@ module.exports =
 		uri = endpoint_auth + "?" + querystring.stringify(qs)
 		res.redirect uri
 	callback: (req, res) ->
-		res.send 'callback'
-		req.send req.query
+		res.json 
+			callback: opts
+			code: req.query.code
