@@ -1,14 +1,24 @@
 
+/*!
+ * See LICENSE.txt for full copyright notice.
+ *
+ * Copyright(c) 2013 Madhusudhan Srinivasa <madhums8@gmail.com>
+ * MIT Licensed
+ *
+ * Copyright (C) 2014 Berend van Berkum (.mpe) <dev@dotmpe.com>
+ * GNU GPL v3
+ */
+
 /**
  * Module dependencies
  */
 
 var express = require('express'),
-  routes = require('./routes'),
-  api = require('./routes/api'),
-  http = require('http'),
-  _ = require('underscore'),
-  path = require('path');
+	routes = require('./routes'),
+	api = require('./routes/api'),
+	http = require('http'),
+	_ = require('underscore'),
+	path = require('path');
 
 var app = module.exports = express();
 var server = require('http').createServer(app);
@@ -30,12 +40,12 @@ app.use(app.router);
 
 // development only
 if (app.get('env') === 'development') {
-  app.use(express.errorHandler());
+	app.use(express.errorHandler());
 }
 
 // production only
 if (app.get('env') === 'production') {
-  // TODO
+	// TODO
 };
 
 
@@ -62,5 +72,5 @@ io.sockets.on('connection', require('./routes/socket'));
  */
 
 server.listen(app.get('port'), function () {
-  console.log('Express server listening on port ' + app.get('port'));
+	console.log('Express server listening on port ' + app.get('port'));
 });

@@ -2,6 +2,8 @@
 
 // Declare app level module which depends on filters, and services
 
+/* FIXME: not loading angular yet
+
 angular.module('myApp', [
   'ngRoute',
 
@@ -28,4 +30,15 @@ config(function ($routeProvider, $locationProvider) {
     });
 
   $locationProvider.html5Mode(true);
+
+});
+*/
+
+$(document).ready(function () {
+
+  $('#tags').tagsInput({
+    'height':'60px',
+    'width':'280px'
+  });
+
 });
