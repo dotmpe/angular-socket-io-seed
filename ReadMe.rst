@@ -36,6 +36,8 @@ master
   - Added underscore utils at backend.
   - Removed cached bower_components from GIT, added bootstrap CSS/JS at
     frontend using bower.
+  - Need to figure out how to do passport with angular, and what socket.io+angular
+    does exacatly.
 
   f_coffee
     - Started feature branch  for coffeescript. 
@@ -51,4 +53,9 @@ master
 
     f_passport
       - Looking at passport module for authentication, tumblr module.
+
+mongoose_demo
+  Merged master of both projects, this branch runs the mongoose demo project and has no angular;
+  but it does have a working Passport implementation. Todo next: get bower working.
+
 
