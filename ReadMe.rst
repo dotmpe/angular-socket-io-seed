@@ -7,26 +7,42 @@ seed project
 -------------
 Forked from https://github.com/btford/angular-socket-io-seed
 
+XXX: this is a merge with mongoose demo, see branche docs below.
+
 Frontend
   - AngularJS
   - JQuery & Bootstrap
   - Templates through Jade backend?
 
-    TODO: read more about ``btford.socket-io`` in 
+    TODO: 
+      read more about ``btford.socket-io`` in 
       ``public/bower_components/angular-socket-io/README.md``
 
 Backend
   - Socket IO
   - Express
   - Node.js
+  - Passport login
 
 - `Original Seed project ReadMe <ReadMe-Seed.md>`_
 
-Installation and run::
+Installation::
+
+  npm install 
+  cp config/config.example.js config/config.js
+  cp config/imager.example.js config/imager.js
+
+You want to create/set a few API keys for services you want to use.
   
+Run::
+  
+  npm start
+
+FIXME::
+
   npm install -g bower \
     && bower install && npm install \
-    && node app.js
+    && node start
 
 
 Branch docs

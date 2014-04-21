@@ -14,6 +14,7 @@ var env = process.env.NODE_ENV || 'development'
 
 module.exports = function (app, config, passport) {
 
+  app.set('port', process.env.PORT || 3000);
   app.set('showStackError', true)
 
   // should be placed before express.static
