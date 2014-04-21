@@ -55,17 +55,18 @@ fs.readdirSync(models_path).forEach(function (file) {
 // bootstrap passport config
 require('./config/passport')(passport, config)
 
+// create express and socket server
 var app = module.exports = express();
 var server = require('http').createServer(app);
 var io = require('socket.io').listen(server);
+
+io.sockets.on('connection', require('./routes/socket'));
 
 // express settings
 require('./config/express')(app, config, passport)
 
 // Bootstrap routes
 require('./config/routes')(app, passport)
-
-io.sockets.on('connection', require('./routes/socket'));
 
 // Start the app by listening on <port>
 //app.listen(app.get('port'))

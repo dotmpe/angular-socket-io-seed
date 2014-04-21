@@ -14,8 +14,8 @@
  */
 
 var express = require('express'),
-	routes = require('./routes'),
-	api = require('./routes/api'),
+	routes = require('./config/routes'),
+	api = require('./config/routes/api'),
 	http = require('http'),
 	_ = require('underscore'),
 	path = require('path');
@@ -64,7 +64,7 @@ app.get('*', routes.index);
 
 // Initialize Socket.io Communication: 
 // as soon as client connects set up backend messages (push events)
-io.sockets.on('connection', require('./routes/socket'));
+io.sockets.on('connection', require('./config/routes/socket'));
 
 /**
  * Start Server
