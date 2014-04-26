@@ -12,9 +12,6 @@ Frontend
   - JQuery & Bootstrap
   - Templates through Jade backend?
 
-    TODO: read more about ``btford.socket-io`` in 
-      ``public/bower_components/angular-socket-io/README.md``
-
 Backend
   - Socket IO
   - Express
@@ -56,6 +53,22 @@ master
 
 mongoose_demo
   Merged master of both projects, this branch runs the mongoose demo project and has no angular;
-  but it does have a working Passport implementation. Todo next: get bower working.
+  but it does have a working Passport implementation. 
+  Bower and angular are working, but need to plan rewriting routing/templates.
+  Not sure how far to take a single ng-app yet.
 
+  Also may want to check out backbone with ng separately.
+  And/or on another branch replace mongoose with sqlite3.
+
+  Since everyone talks about backbone and angular separately and exclusively,
+  I'm probably better off hacking express+socketio+sqlite3 for now to get my
+  things going.
+
+Features
+~~~~~~~~~
+
+AngluarJS
+__________
+
+- TODO: read more about ``btford.socket-io`` in ``public/bower_components/angular-socket-io/README.md``
 
