@@ -72,6 +72,12 @@ mongoose_demo
   Bower and angular are working, but need to plan rewriting routing/templates.
   Not sure how far to take a single ng-app yet.
 
+  Also may want to check out backbone with ng separately.
+  And/or on another branch replace mongoose with sqlite3.
+
+  Since everyone talks about backbone and angular separately and exclusively,
+  I'm probably better off hacking express+socketio+sqlite3 for now to get my
+  things going.
 
 Features
 ~~~~~~~~~
