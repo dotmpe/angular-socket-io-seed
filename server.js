@@ -60,7 +60,9 @@ var app = module.exports = express();
 var server = require('http').createServer(app);
 var io = require('socket.io').listen(server);
 
-io.sockets.on('connection', require('./routes/socket'));
+// Initialize Socket.io Communication: 
+// as soon as client connects set up backend messages (push events)
+io.sockets.on('connection', require('./config/ng/socket'));
 
 // express settings
 require('./config/express')(app, config, passport)
@@ -71,7 +73,6 @@ require('./config/routes')(app, passport)
 // Start the app by listening on <port>
 //app.listen(app.get('port'))
 //console.log('Express app started on port '+port)
-
 server.listen(app.get('port'), function () {
 	console.log('Express server listening on port ' + app.get('port'));
 });

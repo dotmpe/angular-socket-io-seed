@@ -14,8 +14,8 @@
  */
 
 var express = require('express'),
-	routes = require('./config/routes'),
-	api = require('./config/routes/api'),
+	routes = require('./config/ng'), // loads exports from config/ng/index.js
+	api = require('./config/ng/api'),
 	http = require('http'),
 	_ = require('underscore'),
 	path = require('path');
@@ -29,7 +29,7 @@ var io = require('socket.io').listen(server);
  */
 
 // all environments
-app.set('views', __dirname + '/views');
+app.set('views', __dirname + '/app/views');
 app.set('view engine', 'jade');
 app.use(express.logger('dev'));
 app.use(express.bodyParser());
@@ -64,7 +64,7 @@ app.get('*', routes.index);
 
 // Initialize Socket.io Communication: 
 // as soon as client connects set up backend messages (push events)
-io.sockets.on('connection', require('./config/routes/socket'));
+io.sockets.on('connection', require('./config/ng/socket'));
 
 /**
  * Start Server

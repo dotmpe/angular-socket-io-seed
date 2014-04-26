@@ -11,6 +11,8 @@ var async = require('async')
 var users = require('../app/controllers/users')
   , articles = require('../app/controllers/articles')
   , auth = require('./middlewares/authorization')
+  , ngroutes = require('./ng') // loads index.js
+  , ngapi = require('./ng/api')
 
 /**
  * Route middlewares
@@ -24,6 +26,12 @@ var commentAuth = [auth.requiresLogin, auth.comment.hasAuthorization]
  */
 
 module.exports = function (app, passport) {
+
+	// angular app (server-side) views
+	app.get('/', ngroutes.index);
+	app.get('/partials/:name', ngroutes.partials);
+	// angular api
+	app.get('/api/name', ngapi.name)
 
   // user routes
   app.get('/login', users.login)
@@ -96,9 +104,6 @@ module.exports = function (app, passport) {
   app.get('/articles/:id/edit', articleAuth, articles.edit)
   app.put('/articles/:id', articleAuth, articles.update)
   app.del('/articles/:id', articleAuth, articles.destroy)
-
-  // home route
-  app.get('/', articles.index)
 
   // comment routes
   var comments = require('../app/controllers/comments')
