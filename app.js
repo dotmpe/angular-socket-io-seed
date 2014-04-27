@@ -7,10 +7,11 @@
 require('coffee-script/register');
 
 var express = require('express'),
-	routes = require('./routes'),
-	api = require('./routes/api'),
-	http = require('http'),
-	path = require('path');
+  routes = require('./routes'),
+  api = require('./routes/api'),
+  http = require('http'),
+  _ = require('underscore'),
+  path = require('path');
 
 var app = module.exports = express();
 var server = require('http').createServer(app);
@@ -55,7 +56,8 @@ app.get('/api/name', api.name);
 // redirect all others to the index (HTML5 history)
 app.get('*', routes.index);
 
-// Socket.io Communication
+// Initialize Socket.io Communication: 
+// as soon as client connects set up backend messages (push events)
 io.sockets.on('connection', require('./routes/socket'));
 
 /**
