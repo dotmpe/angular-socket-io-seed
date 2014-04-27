@@ -27,8 +27,8 @@
     "npm": "1.2.x"
   },
   "scripts": {
-    "start": "NODE_ENV=development ./node_modules/.bin/nodemon server.js",
-    "test": "NODE_ENV=test ./node_modules/.bin/mocha --reporter spec --timeout 10000 test/test-*.js"
+    "start": "NODE_ENV=development nodemon server.js",
+    "test": "NODE_ENV=test mocha --reporter spec --timeout 10000 test/test-*.js"
   },
   "dependencies": {
     "socket.io": "latest",
@@ -51,8 +51,10 @@
     "async": "latest",
     "view-helpers": "latest",
     "forever": "latest",
-    "knex": "~0.5.13",
-    "sqlite3": "~2.2.3"
+    "knex": "latest",
+    "sqlite3": "latest",
+    "coffee-script": "latest",
+    "LiveScript": "latest"
   },
   "devDependencies": {
     "supertest": "latest",

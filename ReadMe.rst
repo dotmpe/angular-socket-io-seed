@@ -24,9 +24,16 @@ Backend
 
 Installation::
 
+  npm install -g nodemon forever mocha
   npm install 
   cp config/config.example.js config/config.js
   cp config/imager.example.js config/imager.js
+
+The global install is not really required here.
+nodemon is used by npm start scripts, you will need to adjust the path there
+if you decide to install nodemon locally. Module `forever` prefers to be global,
+and `mocha` is just a preference. Personally I have more modules to use the
+latest, globally installed version.
 
 You want to create/set a few API keys for services you want to use.
   

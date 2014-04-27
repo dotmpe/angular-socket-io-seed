@@ -9,12 +9,22 @@
  * GNU GPL v3
  */
 
+//require('server/main')
+
 /**
  * Module dependencies.
  */
 
+/* Enable coffeescript */
+require('coffee-script/register');
+/* Enable LiveScript */
+require('LiveScript')
+// XXX just testing formats, not sure how ls turns out
+
+
 var express = require('express')
 	, passport = require('passport')
+
 
 /**
  * Main application entry file.
@@ -26,11 +36,9 @@ var express = require('express')
 var env = process.env.NODE_ENV || 'development'
 	, config = require('./config/config')[env]
 
-// boostrap sqlite
+// boostrap database
 require('./config/mongoose')(config)
-
-// boostrap mongoose
-require('./config/mongoose')(config)
+require('./config/data')(config)
 
 // bootstrap passport config
 require('./config/passport')(passport, config)

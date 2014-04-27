@@ -10,6 +10,7 @@ var async = require('async')
 
 var users = require('../app/controllers/users')
   , articles = require('../app/controllers/articles')
+  , home = require('../app/controllers/home')
   , auth = require('./middlewares/authorization')
   , ngroutes = require('./ng') // loads index.js
   , ngapi = require('./ng/api')
@@ -27,25 +28,31 @@ var commentAuth = [auth.requiresLogin, auth.comment.hasAuthorization]
 
 module.exports = function (app, passport) {
 
+	/* Defaults */
+
+	// XXX: html5 routing means we have two routers? client vs. server.. 
+	// thus need to find proper redirect method, ie /client/index?redir=<name> 
+	// also, refreshing/requesting client-side routes result in request to server 
+	// and thus default redirect(s) ... 
+	app.get('/client', function(req, res) {
+		res.redirect('/client/index');
+	});
+	app.get('/', function(req, res) {
+		res.redirect('/home');
+	});
+
+  /* Home routes */
+  app.get('/home', home.home)
+
+	/* Angular routes (redirect for frontend) */
 	// angular app (server-side) views
 	app.get('/client/view/:view/:action', ngroutes.partials);
 	app.get('/client/:page', ngroutes.main);
 	// angular api
 	app.get('/api/client/name', ngapi.name)
 
-  // defaults
-  // XXX: html5 routing means we have two routers? thus we might need to find
-  // proper redirect method, ie /client/index?redir=<name>
-  // alsorefreshing a client-side routed page results in a request to server 
-  // and thus redirect to /client/index too.
-	app.get('/client', function(req, res) {
-		res.redirect('/client/index');
-	});
-	app.get('/', function(req, res) {
-		res.redirect('/articles');
-	});
-
-  // user routes
+  /* Express routes (backend only) */
+  /* User module */
   app.get('/login', users.login)
   app.get('/signup', users.signup)
   app.get('/logout', users.logout)
@@ -107,7 +114,7 @@ module.exports = function (app, passport) {
 
   app.param('userId', users.user)
 
-  // article routes
+  /* Article module */
   app.param('id', articles.load)
   app.get('/articles', articles.index)
   app.get('/articles/new', auth.requiresLogin, articles.new)
