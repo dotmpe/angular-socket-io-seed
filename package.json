@@ -1,11 +1,34 @@
 {
-  "name": "application-name",
+  "name": "nodejs-express-socketio-demo-mpe",
+  "description": "Work in progress seed project. ",
+  "keywords": [
+    "express",
+    "socket.io",
+    "demo"
+  ],
   "version": "0.0.0",
   "private": true,
+  "license": "GPLv3",
+  "author": "Berend (.mpe) <dev@dotmpe.com>",
+  "contributors": [
+  ],
+  "engines": {
+    "node": "0.10.x",
+    "npm": "1.2.x"
+  },
+  "scripts": {
+    "start": "NODE_ENV=dev nodemon server.js"
+  },
   "dependencies": {
-    "socket.io": "~0.9.16",
-    "express": "~3.2.6",
-    "jade": "~0.31.2",
-    "underscore": "1.6.0"
+    "socket.io": "latest",
+    "underscore": "latest",
+    "express": "~3.4.x",
+    "jade": "latest",
+    "coffee-script": "latest",
+    "LiveScript": "latest"
+  },
+  "devDependencies": {
+    "mocha": "latest",
+    "nodemon": "latest"
   }
 }
