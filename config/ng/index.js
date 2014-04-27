@@ -1,12 +1,14 @@
 /*
- * GET home page.
+ * Angular server pages
  */
 
-exports.index = function(req, res){
-  res.render('ng/index');
+exports.main = function(req, res){
+  var page = req.params.page || 'index';
+  res.render('ng/index/'+page);
 };
 
 exports.partials = function (req, res) {
-  var name = req.params.name;
-  res.render('ng/partials/' + name);
+  var view = req.params.view
+    , action = req.params.action || view;
+  res.render('ng/client/'+view+'/'+action);
 };

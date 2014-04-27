@@ -1,61 +1,63 @@
 {
-	"name": "nodejs-express-mongoose-ng-demo-mpe",
-	"description": "Based on MongoDB/NodeJS Express demo. Having a look at angular/socketio and ways to do dynamic routing/views",
-	"keywords": [
-		"express",
-		"mongoose",
-		"mongodb",
-		"passport",
-		"demo"
-	],
-	"version": "0.0.1",
-	"private": true,
-	"license": "GPLv3",
-	"author": "Berend (.mpe) <dev@dotmpe.com>",
-	"contributors": [
-		{
-			"name": "Madhusudhan Srinivasa",
-			"email": "madhums8@gmail.com"
-		}
-	],
-	"repository" : {
-		"type" : "git",
-		"url" : "https://github.com/dotmpe/angular-socketio-seed.git"
-	},
-	"engines": {
-		"node": "0.10.x",
-		"npm":  "1.2.x"
-	},
-	"scripts": {
-		"start": "NODE_ENV=development ./node_modules/.bin/nodemon server.js",
-		"test": "NODE_ENV=test ./node_modules/.bin/mocha --reporter spec --timeout 10000 test/test-*.js"
-	},
-	"dependencies": {
-		"socket.io": "latest",
-		"underscore": "latest",
-		"express": "~3.4.x",
-		"jade": "latest",
-		"mongoose": "latest",
-		"connect-mongo": "latest",
-		"connect-flash": "latest",
-		"passport": "latest",
-		"passport-local": "latest",
-		"passport-facebook": "latest",
-		"passport-twitter": "latest",
-		"passport-github": "latest",
-		"passport-google-oauth": "latest",
-		"passport-linkedin": "latest",
-		"imager": "latest",
-		"winston": "latest",
-		"notifier": "latest",
-		"async": "latest",
-		"view-helpers": "latest",
-		"forever": "latest"
-	},
-	"devDependencies": {
-		"supertest": "latest",
-		"should": "latest",
-		"mocha": "latest",
-		"nodemon": "latest"
-	}
+  "name": "nodejs-express-mongoose-ng-demo-mpe",
+  "description": "Based on MongoDB/NodeJS Express demo. Having a look at angular/socketio and ways to do dynamic routing/views",
+  "keywords": [
+    "express",
+    "mongoose",
+    "mongodb",
+    "passport",
+    "demo"
+  ],
+  "version": "0.0.1",
+  "private": true,
+  "license": "GPLv3",
+  "author": "Berend (.mpe) <dev@dotmpe.com>",
+  "contributors": [
+    {
+      "name": "Madhusudhan Srinivasa",
+      "email": "madhums8@gmail.com"
+    }
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dotmpe/angular-socketio-seed.git"
+  },
+  "engines": {
+    "node": "0.10.x",
+    "npm": "1.2.x"
+  },
+  "scripts": {
+    "start": "NODE_ENV=development ./node_modules/.bin/nodemon server.js",
+    "test": "NODE_ENV=test ./node_modules/.bin/mocha --reporter spec --timeout 10000 test/test-*.js"
+  },
+  "dependencies": {
+    "socket.io": "latest",
+    "underscore": "latest",
+    "express": "~3.4.x",
+    "jade": "latest",
+    "mongoose": "latest",
+    "connect-mongo": "latest",
+    "connect-flash": "latest",
+    "passport": "latest",
+    "passport-local": "latest",
+    "passport-facebook": "latest",
+    "passport-twitter": "latest",
+    "passport-github": "latest",
+    "passport-google-oauth": "latest",
+    "passport-linkedin": "latest",
+    "imager": "latest",
+    "winston": "latest",
+    "notifier": "latest",
+    "async": "latest",
+    "view-helpers": "latest",
+    "forever": "latest",
+    "knex": "~0.5.13",
+    "sqlite3": "~2.2.3"
+  },
+  "devDependencies": {
+    "supertest": "latest",
+    "should": "latest",
+    "mocha": "latest",
+    "nodemon": "latest"
+  }
 }

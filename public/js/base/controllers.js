@@ -1,8 +1,8 @@
 'use strict';
 
-/* Controllers */
+/* Angular Controllers */
 
-angular.module('myApp.controllers', []).
+angular.module('base.controllers', []).
   controller('AppCtrl', function ($scope, socket) {
     socket.on('send:name', function (data) {
       $scope.name = data.name;
@@ -14,5 +14,8 @@ angular.module('myApp.controllers', []).
     });
   }).
   controller('AccountCtrl', function ($scope) {
+    // write Ctrl here
+  }).
+  controller('PostCtrl', function ($scope) {
     // write Ctrl here
   });

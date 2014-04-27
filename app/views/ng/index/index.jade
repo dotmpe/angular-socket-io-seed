@@ -1,10 +1,9 @@
-extends layout
+extends ../layouts/default
 
 block body
-  div.container(ng-controller='AppCtrl')
-    h2 NCARS 0001
-    include menu
-    div(ng-view)
+  div.ng-app-container(ng-controller='AppCtrl')
+    
+    div.ng-view-wrapper(ng-view)
 
   script(src='/socket.io/socket.io.js')
   script(src='/bower_components/angular/angular.js')
@@ -12,9 +11,11 @@ block body
   script(src='/bower_components/angular-socket-io/socket.js')
   script(src='/bower_components/jquery/dist/jquery.js')
   script(src='/bower_components/bootstrap/dist/js/bootstrap.js')
-  script(src='/js/app.js')
-  script(src='/js/services.js')
-  script(src='/js/controllers.js')
-  script(src='/js/filters.js')
-  script(src='/js/directives.js')
+  script(src='/js/app/base.js')
+  script(src='/js/base/services.js')
+  script(src='/js/base/controllers.js')
+  script(src='/js/base/filters.js')
+  script(src='/js/base/directives.js')
+
+
 

@@ -14,7 +14,6 @@
  */
 
 var express = require('express')
-	, fs = require('fs')
 	, passport = require('passport')
 
 /**
@@ -26,39 +25,20 @@ var express = require('express')
 // if test env, load example file
 var env = process.env.NODE_ENV || 'development'
 	, config = require('./config/config')[env]
-	, mongoose = require('mongoose')
 
-// Bootstrap db connection
-// Connect to mongodb
-var connect = function () {
-	var options = { server: { socketOptions: { keepAlive: 1 } } }
-	mongoose.connect(config.db, options)
-}
-connect()
+// boostrap sqlite
+require('./config/mongoose')(config)
 
-// Error handler
-mongoose.connection.on('error', function (err) {
-	console.log(err)
-})
-
-// Reconnect when closed
-mongoose.connection.on('disconnected', function () {
-	connect()
-})
-
-// Bootstrap models
-var models_path = __dirname + '/app/models'
-fs.readdirSync(models_path).forEach(function (file) {
-	if (~file.indexOf('.js')) require(models_path + '/' + file)
-})
+// boostrap mongoose
+require('./config/mongoose')(config)
 
 // bootstrap passport config
 require('./config/passport')(passport, config)
 
 // create express and socket server
-var app = module.exports = express();
-var server = require('http').createServer(app);
-var io = require('socket.io').listen(server);
+var app = module.exports = express()
+var server = require('http').createServer(app)
+var io = require('socket.io').listen(server)
 
 // Initialize Socket.io Communication: 
 // as soon as client connects set up backend messages (push events)
@@ -70,9 +50,7 @@ require('./config/express')(app, config, passport)
 // Bootstrap routes
 require('./config/routes')(app, passport)
 
-// Start the app by listening on <port>
-//app.listen(app.get('port'))
-//console.log('Express app started on port '+port)
+// Start ...
 server.listen(app.get('port'), function () {
 	console.log('Express server listening on port ' + app.get('port'));
 });
