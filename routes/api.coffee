@@ -1,5 +1,4 @@
 # Serve JSON to our AngularJS client
-exports.name = (req, res) ->
-	res.json(
+module.exports.name = ( req, res ) ->
+	res.json
 		name: 'Bob'
-	)
