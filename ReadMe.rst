@@ -29,30 +29,35 @@ Installation and run::
 Branch docs
 ~~~~~~~~~~~
 master
-  - Mostly original seed project. 
-  - Added underscore utils at backend.
-  - Removed cached bower_components from GIT, added bootstrap CSS/JS at
-    frontend using bower.
-  - Need to figure out how to do passport with angular, and what socket.io+angular
-    does exacatly.
+  - Mostly original seed project, added underscore.
+  - Install CSS/JS using bower to public folder,
+    no other asset management; paths directly to Jade.
 
-  f_coffee
+  ToDo:
+    - Need RequireJS at frontend.
+    - Would want coffeescript/livescript at frontend.
+    - Need to figure out how to do passport with angular, 
+      look at what socket.io+angular does.
+    - Compare against SocketStream stack.
+
+  Feture: f_coffee
     - Started feature branch  for coffeescript. 
     - Working for backend, need to fix loading in frontend.
 
-  f_tumblr
+  Feature: f_tumblr
     - Started feature branch for tumblr.
     - Figure out OAuth first.
 
-  f_oauth2
+  Feature: f_oauth2
     - Need to get federated login. OAuth2 working easily, Oauth1 too
       complicated, use library: Passport.
 
-    f_passport
+  Feature: f_passport
       - Looking at passport module for authentication, tumblr module.
 
-mongoose_demo
-  Merged master of both projects, this branch runs the mongoose demo project and has no angular;
+Fork: mongoose_demo
+  Merged master of both projects, this branch runs the mongoose demo project 
+  and has no angular;
   but it does have a working Passport implementation. 
   Bower and angular are working, but need to plan rewriting routing/templates.
   Not sure how far to take a single ng-app yet.
