@@ -3,7 +3,6 @@
  * Module dependencies.
  */
 
-var mongoose = require('mongoose')
 var utils = require('../../lib/utils')
 
 /**

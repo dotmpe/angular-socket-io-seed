@@ -1,16 +1,29 @@
 sqlite3 = require 'sqlite3'
-Knex = require 'knex'
+Bookshelf = require 'bookshelf'
 
 module.exports = ( config ) ->
 
-	Knex.knex = Knex.initialize(
+	SQLiteBase = Bookshelf.initialize(
 		client: 'sqlite'
 		connection:
 			filename: './test.sqlite3.db'
 	)
 
+	Bookshelf.session = SQLiteBase
+	models = require '../app/models'
+
+	SQLiteBase.plugin 'registry'
+
+	SQLiteBase.model('User', models.User)
+	SQLiteBase.collection('Users', models.Users)
+
+	SQLiteBase.model('Article', models.Article)
+	SQLiteBase.collection('Articles', models.Articles)
+
+	return session: SQLiteBase
+
 	###
-		knex = Knex.initialize(
+		knex = Bookshelf.initialize(
 			client: 'mysql'
 			connection:
 				host     : '127.0.0.1'

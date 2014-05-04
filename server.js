@@ -37,7 +37,7 @@ var env = process.env.NODE_ENV || 'development'
 	, config = require('./config/config')[env]
 
 // boostrap database
-require('./config/mongoose')(config)
+//require('./config/mongoose')(config)
 require('./config/data')(config)
 
 // bootstrap passport config

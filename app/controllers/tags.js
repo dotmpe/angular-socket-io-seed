@@ -2,8 +2,8 @@
  * Module dependencies.
  */
 
-var mongoose = require('mongoose')
-  , Article = mongoose.model('Article')
+var Bookshelf = require('bookshelf')
+  , Article = Bookshelf.session.model('Article')
 
 /**
  * List items tagged with a tag

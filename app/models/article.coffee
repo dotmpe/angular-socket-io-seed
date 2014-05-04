@@ -1,4 +1,13 @@
-ArticleSchema = (table) ->
+Base = require('bookshelf').session
+
+module.exports.Article = Base.Model.extend(
+	tableName: 'users'
+)
+module.exports.Articles = Base.Collection.extend(
+	model: module.exports.Article
+)
+
+module.exports.ArticleSchema = (table) ->
 	console.log('init ArticleSchema')
 	table.string('title')
 	table.timestamps() # created_at, updated_at
@@ -13,7 +22,4 @@ createSchema = () ->
 		console.log 'Create articles table'
 ###
 
-module.exports = 
-	schema:
-		article: ArticleSchema
 

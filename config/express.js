@@ -4,7 +4,8 @@
  */
 
 var express = require('express')
-  , mongoStore = require('connect-mongo')(express)
+//  , mongoStore = require('connect-mongo')(express)
+  , session = require('cookie-session')
   , flash = require('connect-flash')
   , winston = require('winston')
   , helpers = require('view-helpers')
@@ -63,14 +64,22 @@ module.exports = function (app, config, passport) {
     app.use(express.bodyParser())
     app.use(express.methodOverride())
 
-    // express/mongo session storage
-    app.use(express.session({
-      secret: pkg.name,
-      store: new mongoStore({
-        url: config.db,
-        collection : 'sessions'
-      })
+    app.use(session({
+      secret: 98172347812481231296319237812937,//appConfig.site.salt
+      keys: ['key1'],
+      cookie: {
+        maxAge: 1000*60*60 
+      }
     }))
+
+    // express/mongo session storage
+//    app.use(express.session({
+//      secret: pkg.name,
+//      store: new mongoStore({
+//        url: config.db,
+//        collection : 'sessions'
+//      })
+//    }))
 
     // use passport session
     app.use(passport.initialize())

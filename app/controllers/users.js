@@ -3,8 +3,8 @@
  * Module dependencies.
  */
 
-var mongoose = require('mongoose')
-  , User = mongoose.model('User')
+var Bookshelf = require('bookshelf')
+  , User = Bookshelf.session.model('User')
   , utils = require('../../lib/utils')
 
 var login = function (req, res) {

@@ -2,17 +2,18 @@
  * Module dependencies.
  */
 
-var mongoose = require('mongoose')
-  , Article = mongoose.model('Article')
-  , utils = require('../../lib/utils')
-  , extend = require('util')._extend
+var 
+	Bookshelf = require('bookshelf')
+	, Article = Bookshelf.session.model('Article')
+	, utils = require('../../lib/utils')
+	, extend = require('util')._extend
 
 /**
  * Load
  */
 
 exports.load = function(req, res, next, id){
-  var User = mongoose.model('User')
+  var User = Bookshelf.session.model('User')
 
   Article.load(id, function (err, article) {
     if (err) return next(err)

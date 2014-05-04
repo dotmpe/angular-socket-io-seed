@@ -1,11 +1,12 @@
-var mongoose = require('mongoose')
-  , LocalStrategy = require('passport-local').Strategy
-  , TwitterStrategy = require('passport-twitter').Strategy
-  , FacebookStrategy = require('passport-facebook').Strategy
-  , GitHubStrategy = require('passport-github').Strategy
-  , GoogleStrategy = require('passport-google-oauth').OAuth2Strategy
-  , LinkedinStrategy = require('passport-linkedin').Strategy
-  , User = mongoose.model('User')
+var LocalStrategy = require('passport-local').Strategy
+	, TwitterStrategy = require('passport-twitter').Strategy
+	, FacebookStrategy = require('passport-facebook').Strategy
+	, GitHubStrategy = require('passport-github').Strategy
+	, GoogleStrategy = require('passport-google-oauth').OAuth2Strategy
+	, LinkedinStrategy = require('passport-linkedin').Strategy
+	, Bookshelf = require('bookshelf')
+	, User = Bookshelf.session.model('User')
+	, Users = Bookshelf.session.collection('Users')
 
 
 module.exports = function (passport, config) {
@@ -17,7 +18,7 @@ module.exports = function (passport, config) {
   })
 
   passport.deserializeUser(function(id, done) {
-    User.findOne({ _id: id }, function (err, user) {
+    User.fetchOne({ _id: id }, function (err, user) {
       done(err, user)
     })
   })
@@ -28,7 +29,7 @@ module.exports = function (passport, config) {
       passwordField: 'password'
     },
     function(email, password, done) {
-      User.findOne({ email: email }, function (err, user) {
+      User.fetchOne({ email: email }, function (err, user) {
         if (err) { return done(err) }
         if (!user) {
           return done(null, false, { message: 'Unknown user' })
@@ -48,7 +49,7 @@ module.exports = function (passport, config) {
       callbackURL: config.twitter.callbackURL
     },
     function(token, tokenSecret, profile, done) {
-      User.findOne({ 'twitter.id_str': profile.id }, function (err, user) {
+      User.fetchOne({ 'twitter.id_str': profile.id }, function (err, user) {
         if (err) { return done(err) }
         if (!user) {
           user = new User({
@@ -76,7 +77,7 @@ module.exports = function (passport, config) {
       callbackURL: config.facebook.callbackURL
     },
     function(accessToken, refreshToken, profile, done) {
-      User.findOne({ 'facebook.id': profile.id }, function (err, user) {
+      User.fetchOne({ 'facebook.id': profile.id }, function (err, user) {
         if (err) { return done(err) }
         if (!user) {
           user = new User({
@@ -105,7 +106,7 @@ module.exports = function (passport, config) {
       callbackURL: config.github.callbackURL
     },
     function(accessToken, refreshToken, profile, done) {
-      User.findOne({ 'github.id': profile.id }, function (err, user) {
+      new Users().fetchOne({ 'github.id': profile.id }, function (err, user) {
         if (!user) {
           user = new User({
             name: profile.displayName,
@@ -132,7 +133,7 @@ module.exports = function (passport, config) {
       callbackURL: config.google.callbackURL
     },
     function(accessToken, refreshToken, profile, done) {
-      User.findOne({ 'google.id': profile.id }, function (err, user) {
+      User.fetchOne({ 'google.id': profile.id }, function (err, user) {
         if (!user) {
           user = new User({
             name: profile.displayName,
@@ -160,7 +161,7 @@ module.exports = function (passport, config) {
     profileFields: ['id', 'first-name', 'last-name', 'email-address']
     },
     function(accessToken, refreshToken, profile, done) {
-      User.findOne({ 'linkedin.id': profile.id }, function (err, user) {
+      User.fetchOne({ 'linkedin.id': profile.id }, function (err, user) {
         if (!user) {
           user = new User({
             name: profile.displayName
