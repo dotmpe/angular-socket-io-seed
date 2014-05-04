@@ -2,7 +2,7 @@
 
 /* Angular Controllers */
 
-angular.module('base.controllers', []).
+angular.module('trojan.controllers', []).
   controller('AppCtrl', function ($scope, socket) {
     socket.on('send:name', function (data) {
       $scope.name = data.name;

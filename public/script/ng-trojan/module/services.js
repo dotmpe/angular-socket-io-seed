@@ -5,7 +5,7 @@
 
 // Demonstrate how to register services
 // In this case it is a simple value service.
-angular.module('base.services', []).
+angular.module('trojan.services', []).
   factory('socket', function (socketFactory) {
     return socketFactory();
   }).

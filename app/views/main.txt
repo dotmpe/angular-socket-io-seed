@@ -1,0 +1,59 @@
+/app/view - Contains all templates.
+
+This is the root from where Express loads its templates.
+The typical folders are described in the section below.
+
+Beneath this folder there are also two other levels which have 
+other sets of templates.
+These do not (normally) include and extend each other but are distinct trees:
+
+/app/view/ng
+  - Contains tpls for the complete page(s) with an Angular App.
+    These embed directives for a view and one or more controllers.
+
+/app/view/ng/client
+  - Contains tpls to build the partial pages used as Angular view.
+    These will embed references to one ore more Angular controllers.
+
+Template folder root decription
+--------------------------------
+Each template folder holds a general structure, 
+and is recognized by the layout and include directory::
+
+  layout/
+    default
+    mobile
+  include/ 
+  <topic>/
+    <topic>
+    list
+    default
+  
+Some subnodes are given as informal example.
+
+layout/
+  - contains the page configuration extended by a topic
+include/
+  - contains partials used in a layout
+
+The <topic> folders allow templates for different HTTP endpoint to be organized
+according to feature. These can have one or multiple distinct templates
+depending on the needs.
+
+Angular pages
+--------------
+Angular pages can contain one or more apps but only one can be bootstrapped
+automatically. 
+Each angular page holds a number of controllers, but only one view, which is
+loaded from an sepearate URL.
+The routing of URL maps to a view URL and controller.
+
+Views can contain their own controllers.
+
+If html5Mode is used with the $locationProvider, there is no hash-URL needed
+for client side-routing.
+This does tend to create URLs which are not routed at server side.
+
+
+
+

@@ -26,32 +26,36 @@ var commentAuth = [auth.requiresLogin, auth.comment.hasAuthorization]
  * Expose routes
  */
 
+var redirect = function(path) {
+	return function(req, res) {
+		res.redirect(path);
+	}
+}
+
 module.exports = function (app, passport) {
 
-	/* Defaults */
+	/* Angular server-side routes */
 
 	// XXX: html5 routing means we have two routers? client vs. server.. 
 	// thus need to find proper redirect method, ie /client/index?redir=<name> 
 	// also, refreshing/requesting client-side routes result in request to server 
 	// and thus default redirect(s) ... 
-	app.get('/client', function(req, res) {
-		res.redirect('/client/index');
-	});
-	app.get('/', function(req, res) {
-		res.redirect('/home');
-	});
-
-  /* Home routes */
-  app.get('/home', home.home)
-
-	/* Angular routes (redirect for frontend) */
-	// angular app (server-side) views
-	app.get('/client/view/:view/:action', ngroutes.partials);
-	app.get('/client/:page', ngroutes.main);
+	/* Front end is not the exciting, just need one page. */
+	app.route('/trojan/:page').all(ngroutes.main);
+	app.route('/trojan/').all(ngroutes.main);
+	app.route('/trojan').all(redirect('/trojan/'));
+	/* Angular app (server-side) views */
+	app.route('/trojan/view/:view/:action').all(ngroutes.partials);
 	// angular api
-	app.get('/api/client/name', ngapi.name)
+	app.route('/api/client/name').all(ngapi.name)
 
   /* Express routes (backend only) */
+  /* Home routes */
+  app.route('/home').all(home.home)
+	app.route('/').all(redirect('/home'))
+	app.route(/^\/bower_component\/(.*)$/).all(function(req, res) {
+		res.redirect('/components/'+req.params[0]);
+	});
   /* User module */
   app.get('/login', users.login)
   app.get('/signup', users.signup)

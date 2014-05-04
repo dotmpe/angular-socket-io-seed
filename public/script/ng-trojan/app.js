@@ -3,13 +3,13 @@
 // Declare app level module which depends on filters, and services
 
 angular
-  .module('base', [
+  .module('trojan', [
     'ngRoute',
 
-    'base.controllers',
-    'base.filters',
-    'base.services',
-    'base.directives',
+    'trojan.controllers',
+    'trojan.filters',
+    'trojan.services',
+    'trojan.directives',
 
     // 3rd party dependencies
     'btford.socket-io' // angular-socket-io
@@ -17,30 +17,30 @@ angular
   .config(function ($routeProvider, $locationProvider) {
 
     $routeProvider
-      .when('/client/index', {
-        templateUrl: '/client/view/home/home',
+      .when('/index', {
+        templateUrl: '/trojan/view/home/home',
         controller: 'HomeCtrl'
       })
-      .when('/client/account', {
-        templateUrl: '/client/view/account/account',
+      .when('/account', {
+        templateUrl: '/trojan/view/account/account',
         controller: 'AccountCtrl'
       })
-      .when('/client/account/list', {
-        templateUrl: '/client/view/account/list',
+      .when('/account/list', {
+        templateUrl: '/trojan/view/account/list',
         controller: 'AccountCtrl'
       })
-      .when('/client/post', {
-        templateUrl: '/client/view/post/post',
+      .when('/post', {
+        templateUrl: '/trojan/view/post/post',
         controller: 'PostCtrl'
       })
-      .when('/client/*', {
+      .when('/*', {
       //.otherwise({
-        redirectTo: '/client/index'
+        redirectTo: '/index'
       });
 
-    $locationProvider.html5Mode(true);
+    //$locationProvider.html5Mode(true);
 
-    console.debug('angular "base" client inited');
+    console.debug('angular client "trojan" init\'ed');
   });
 
   $(document).ready(function () {

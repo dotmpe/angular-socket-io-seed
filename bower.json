@@ -5,8 +5,7 @@
 		"**/.*",
 		"node_modules",
 		"components",
-		"bower_components",
-		"public/bower_components",
+		"public/components",
 		"test",
 		"tests"
 	],
@@ -26,6 +25,5 @@
 		"node"
 	],
 	"license": "MIT",
-	"private": true,
-	"directory": "app/bower_components"
+	"private": true
 }

@@ -92,6 +92,8 @@ Fork: mongoose_demo
   I'm probably better off hacking express+socketio+sqlite3 for now to get my
   things going.
 
+  There is an Angular app called 'trojan' here.
+
 Features
 ~~~~~~~~~
 
