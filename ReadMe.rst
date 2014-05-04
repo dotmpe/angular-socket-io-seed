@@ -13,9 +13,9 @@ Frontend
   - Templates through Jade backend?
 
 Backend
+  - Node.js
   - Socket IO
   - Express
-  - Node.js
 
 - `Original Seed project ReadMe <ReadMe-Seed.md>`_
 
@@ -40,7 +40,7 @@ master
       look at what socket.io+angular does.
     - Compare against SocketStream stack.
 
-  Feture: f_coffee
+  Feature: f_coffee
     - Started feature branch  for coffeescript. 
     - Working for backend, need to fix loading in frontend.
 
@@ -56,14 +56,13 @@ master
       - Looking at passport module for authentication, tumblr module.
 
 Fork: mongoose_demo
-  Merged master of both projects, this branch runs the mongoose demo project 
-  and has no angular;
-  but it does have a working Passport implementation. 
-  Bower and angular are working, but need to plan rewriting routing/templates.
-  Not sure how far to take a single ng-app yet.
+  Merged in mongoose-demo seed. 
+  Working to rewrite to bookshelfjs
 
-  Also may want to check out backbone with ng separately.
-  And/or on another branch replace mongoose with sqlite3.
+  Mongoos-demo seed had originally no angular; 
+  but does have a working Passport implementation. 
+
+  May want to check out backbone with ng separately.
 
   Since everyone talks about backbone and angular separately and exclusively,
   I'm probably better off hacking express+socketio+sqlite3 for now to get my
