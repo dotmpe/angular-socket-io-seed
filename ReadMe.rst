@@ -12,13 +12,10 @@ Frontend
   - JQuery & Bootstrap
   - Templates through Jade backend?
 
-    TODO: read more about ``btford.socket-io`` in 
-      ``public/bower_components/angular-socket-io/README.md``
-
 Backend
+  - Node.js
   - Socket IO
   - Express
-  - Node.js
 
 - `Original Seed project ReadMe <ReadMe-Seed.md>`_
 
@@ -32,20 +29,50 @@ Installation and run::
 Branch docs
 ~~~~~~~~~~~
 master
-  Original seed project.
+  - Mostly original seed project, added underscore.
+  - Install CSS/JS using bower to public folder,
+    no other asset management; paths directly to Jade.
 
-  f_coffee
+  ToDo:
+    - Need RequireJS at frontend.
+    - Would want coffeescript/livescript at frontend.
+    - Need to figure out how to do passport with angular, 
+      look at what socket.io+angular does.
+    - Compare against SocketStream stack.
+
+  Feature: f_coffee
     - Started feature branch  for coffeescript. 
     - Working for backend, need to fix loading in frontend.
 
-  f_tumblr
+  Feature: f_tumblr
     - Started feature branch for tumblr.
     - Figure out OAuth first.
 
-  f_oauth2
+  Feature: f_oauth2
     - Need to get federated login. OAuth2 working easily, Oauth1 too
       complicated, use library: Passport.
 
-  f_passport
-    - Looking at passport module for authentication, tumblr module.
+  Feature: f_passport
+      - Looking at passport module for authentication, tumblr module.
+
+Fork: mongoose_demo
+  Merged in mongoose-demo seed. 
+  Working to rewrite to bookshelfjs
+
+  Mongoos-demo seed had originally no angular; 
+  but does have a working Passport implementation. 
+
+  May want to check out backbone with ng separately.
+
+  Since everyone talks about backbone and angular separately and exclusively,
+  I'm probably better off hacking express+socketio+sqlite3 for now to get my
+  things going.
+
+Features
+~~~~~~~~~
+
+AngluarJS
+__________
+
+- TODO: read more about ``btford.socket-io`` in ``public/bower_components/angular-socket-io/README.md``
 
