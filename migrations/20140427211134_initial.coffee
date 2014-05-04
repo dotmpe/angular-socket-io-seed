@@ -1,9 +1,14 @@
+models = require '../app/models'
 
 exports.up = (knex, Promise) -> 
-	knex.schema.createTable 'users', require('../app/models/user').schema.user
-	knex.schema.createTable 'articles', require('../app/models/article').schema.article
+	return Promise.all([
+		knex.schema.createTable 'users', models.user.schema
+		knex.schema.createTable 'articles', models.article.schema
+	])
 
 exports.down = (knex, Promise) -> 
-	knex.schema.dropTable 'users'
-	knex.schema.dropTable 'articles'
+	return Promise.all([
+		knex.schema.dropTable 'users'
+		knex.schema.dropTable 'articles'
+	])
 

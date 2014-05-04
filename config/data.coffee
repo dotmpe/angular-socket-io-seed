@@ -11,15 +11,9 @@ module.exports = ( config ) ->
 
 	Bookshelf.session = SQLiteBase
 	models = require '../app/models'
-
 	SQLiteBase.plugin 'registry'
-
-	SQLiteBase.model('User', models.User)
-	SQLiteBase.collection('Users', models.Users)
-
-	SQLiteBase.model('Article', models.Article)
-	SQLiteBase.collection('Articles', models.Articles)
-
+	models.user.define(SQLiteBase)
+	models.article.define(SQLiteBase)
 	return session: SQLiteBase
 
 	###

@@ -10,18 +10,56 @@ var LocalStrategy = require('passport-local').Strategy
 
 
 module.exports = function (passport, config) {
-  // require('./initializer')
+	// require('./initializer')
 
-  // serialize sessions
-  passport.serializeUser(function(user, done) {
-    done(null, user.id)
-  })
+	// serialize sessions
+	passport.serializeUser(function(user, done) {
+		console.log('serializeUser');
+		console.log([user, user.id]);
+		if (!user.id) {
+			throw "Model has no id"
+		}
+		done(null, user.id)
+	})
 
-  passport.deserializeUser(function(id, done) {
-    User.fetchOne({ _id: id }, function (err, user) {
-      done(err, user)
-    })
-  })
+	passport.deserializeUser(function(id, done) {
+		User.fetchOne({ _id: id }, function (err, user) {
+			done(err, user)
+		})
+	})
+
+	// use github strategy
+	passport.use(new GitHubStrategy({
+		clientID: config.github.clientID,
+		clientSecret: config.github.clientSecret,
+		callbackURL: config.github.callbackURL
+	},
+	function(accessToken, refreshToken, profile, done) {
+		User.collection().fetchOne({ 'github.id': profile.id })
+			.then( function(user) {
+				if (user) {
+					done(null, user)
+				} else {
+					user = User.forge({
+						name: profile.displayName,
+						email: profile.emails[0].value,
+						username: profile.username,
+						provider: 'github',
+						github: profile._json
+					})
+					.save()
+					.then(function () {
+						console.log('new user')
+						return done(null, user.fetch())
+					})
+					.catch(function (err) {
+						if (err) console.log(err)
+						return done(err, user)
+					});
+				}
+			})
+		}
+	))
 
   // use local strategy
   passport.use(new LocalStrategy({
@@ -93,33 +131,6 @@ module.exports = function (passport, config) {
           })
         }
         else {
-          return done(err, user)
-        }
-      })
-    }
-  ))
-
-  // use github strategy
-  passport.use(new GitHubStrategy({
-      clientID: config.github.clientID,
-      clientSecret: config.github.clientSecret,
-      callbackURL: config.github.callbackURL
-    },
-    function(accessToken, refreshToken, profile, done) {
-      new Users().fetchOne({ 'github.id': profile.id }, function (err, user) {
-        if (!user) {
-          user = new User({
-            name: profile.displayName,
-            email: profile.emails[0].value,
-            username: profile.username,
-            provider: 'github',
-            github: profile._json
-          })
-          user.save(function (err) {
-            if (err) console.log(err)
-            return done(err, user)
-          })
-        } else {
           return done(err, user)
         }
       })
