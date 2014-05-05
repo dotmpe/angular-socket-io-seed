@@ -24,6 +24,7 @@ require('LiveScript')
 
 var express = require('express')
 	, passport = require('passport')
+	, _ = require('underscore')
 
 
 /**
@@ -57,6 +58,14 @@ require('./config/express')(app, config, passport)
 
 // Bootstrap routes
 require('./config/routes')(app, passport)
+
+// Module try-out
+require('./config/modules')(config, app)
+// XXX want to look for some middleware to do dynamic routing/loading
+// ie. to prevent loading unneeded parts and keeping everything in memory,
+// to have a server footprint that adapts to current requests.
+// This should allow unused parts, ie. nice for prototyping and development
+
 
 // Start ...
 server.listen(app.get('port'), function () {

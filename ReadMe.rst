@@ -3,11 +3,12 @@ AngularJS + Socket IO, Express, Node
 :created: 2014-04-19
 :url: git@github.com:dotmpe/angular-socket-io-seed.git
 
-seed project
+Seed project
 -------------
-Forked from https://github.com/btford/angular-socket-io-seed
+Initial master forked from https://github.com/btford/angular-socket-io-seed
+After some experimental features, mongoose_demo was imported from ...
+RequireJS was merged onto f_markdown and could be needed elsewhere.
 
-XXX: this is a merge with mongoose demo, see branche docs below.
 
 Frontend
   - AngularJS
@@ -106,4 +107,49 @@ AngluarJS
 __________
 
 - TODO: read more about ``btford.socket-io`` in ``public/bower_components/angular-socket-io/README.md``
+
+Customizations and Extensions
+_______________________________
+Since NodeJS is a convenient framework for web prototyping, a mechanism to plug
+portable components would be nice to have. The current refactoring is also
+targetting a personalized Express 4 application, possibly working toward some
+kind of plugin functionality.
+
+At the very least, a standardized tree for files that make SCM forks and merges less
+of a pain is given. See notes below and elsewhere.
+
+Proposed paths:
+
+- plugin/<module>/settings.default
+- plugin/<module>/route 
+- plugin/<module>/app
+- plugin/<module>/ext-manifest
+
+There is no name for the plugin mechanism. Also, there are perhaps a 1001 such
+things out there.
+
+Paths
+------------
+Some up to date notes on the paths in the project.
+
+- config/config* - Static configuration files
+- config/config.<module> - Extension module static config
+- config/express - Express/Connect middleware init
+- config/routes* - Express routes init
+- config/routes.<module> - Extension module routes init
+
+- app/ - application directory
+- app/ext/<module>/ - appliction Extension directory
+
+- public/ - Static HTTP resources
+- public/script/ng-trojan/ - Client scripts for Angular app
+- public/components/ - Bower component installation dir
+
+See app/main.txt for more info on application paths.
+
+The paths for extensions are in the same tree here, but
+perhaps as installable they will end up as the list given in the previous
+section.
+
+
 

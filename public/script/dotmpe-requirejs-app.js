@@ -10,7 +10,8 @@ var paths = {
 	"underscore": "//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.6.0/underscore-min",
 	"underscore.string": "//cdnjs.cloudflare.com/ajax/libs/underscore.string/2.3.3/underscore.string.min",
 	"d3": "//cdnjs.cloudflare.com/ajax/libs/d3/3.4.2/d3.min",
-	"rickshaw": "//cdnjs.cloudflare.com/ajax/libs/rickshaw/1.4.6/rickshaw.min"
+	"rickshaw": "//cdnjs.cloudflare.com/ajax/libs/rickshaw/1.4.6/rickshaw.min",
+	"markdown" : "/script/markdown"
 }
 devPaths = {
 	"app": "../dotmpe-requirejs-app",
@@ -20,18 +21,21 @@ devPaths = {
 	"underscore": "//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.6.0/underscore",
 	"underscore.string": "//cdnjs.cloudflare.com/ajax/libs/underscore.string/2.3.3/underscore.string.min",
 	"d3": "//cdnjs.cloudflare.com/ajax/libs/d3/3.4.2/d3",
-	"rickshaw": "//cdnjs.cloudflare.com/ajax/libs/rickshaw/1.4.6/rickshaw"
+	"rickshaw": "//cdnjs.cloudflare.com/ajax/libs/rickshaw/1.4.6/rickshaw",
+	"markdown" : "//raw.githubusercontent.com/toopay/bootstrap-markdown/master/js/bootstrap-markdown"
 }; 
 requirejs.config({
-	baseUrl: "script/lib",
+	baseUrl: "/script/lib",
 //	paths: paths,
 	paths: devPaths,
 	shim: {
 		"d3": { exports: "d3", },
 		"rickshaw": { exports: "Rickshaw", deps: [ "d3" ] },
+		"markdown": { exports: "Markdown", deps: ["jquery"] }
 	}
 });
 requirejs(["graphdata"]);
+requirejs(["markdown-editor"]);
 requirejs(["app/toolkit"]);
 requirejs(["app/d3"]);
 requirejs(["app/dashboard"]);
