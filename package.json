@@ -46,6 +46,7 @@
     "imager": "latest",
     "jade": "latest",
     "knex": "^0.5.13",
+    "markdown-js": "0.0.3",
     "method-override": "^1.0.0",
     "mongoose": "latest",
     "morgan": "^1.0.0",
@@ -59,7 +60,7 @@
     "passport-twitter": "latest",
     "socket.io": "latest",
     "sqlite3": "^2.2.3",
-    "underscore": "latest",
+    "underscore": "^1.6.0",
     "view-helpers": "latest",
     "winston": "latest"
   },

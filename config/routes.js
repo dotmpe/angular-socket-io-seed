@@ -56,6 +56,7 @@ module.exports = function (app, passport) {
 	app.route(/^\/bower_component\/(.*)$/).all(function(req, res) {
 		res.redirect('/components/'+req.params[0]);
 	});
+
   /* User module */
   app.get('/login', users.login)
   app.get('/signup', users.signup)

@@ -1,0 +1,14 @@
+doctype html
+html(lang='en', xmlns='http://www.w3.org/1999/xhtml')
+  head
+    title
+      Markdown editor
+  body
+    textarea(id="text-input", oninput="this.editor.update()", rows="6", cols="70") 
+      = Editor
+      Type **Markdown** here.
+    div#preview
+    script(src="/script/markdown.js")
+    script(src="/script/markdown-editor.js")
+
+
