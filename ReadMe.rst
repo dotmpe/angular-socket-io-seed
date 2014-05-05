@@ -68,6 +68,13 @@ Fork: mongoose_demo
   I'm probably better off hacking express+socketio+sqlite3 for now to get my
   things going.
 
+  There is an Angular app called 'trojan' here.
+
+  Feature: f_markdown
+    - First feature branch for mongoose_demo. 
+    - Create a client-side markdown editor. Needs RequireJS.
+
+
 Features
 ~~~~~~~~~
 
