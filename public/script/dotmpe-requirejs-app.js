@@ -22,7 +22,7 @@ devPaths = {
 	"underscore.string": "//cdnjs.cloudflare.com/ajax/libs/underscore.string/2.3.3/underscore.string.min",
 	"d3": "//cdnjs.cloudflare.com/ajax/libs/d3/3.4.2/d3",
 	"rickshaw": "//cdnjs.cloudflare.com/ajax/libs/rickshaw/1.4.6/rickshaw",
-	"markdown" : "/script/markdown"
+	"markdown" : "//raw.githubusercontent.com/toopay/bootstrap-markdown/master/js/bootstrap-markdown"
 }; 
 requirejs.config({
 	baseUrl: "/script/lib",
@@ -31,7 +31,7 @@ requirejs.config({
 	shim: {
 		"d3": { exports: "d3", },
 		"rickshaw": { exports: "Rickshaw", deps: [ "d3" ] },
-		"markdown": { exports: "exports" }
+		"markdown": { exports: "Markdown", deps: ["jquery"] }
 	}
 });
 requirejs(["graphdata"]);
