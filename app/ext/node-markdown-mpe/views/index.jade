@@ -4,11 +4,17 @@ html(lang='en', xmlns='http://www.w3.org/1999/xhtml')
     title
       Markdown editor
   body
+    h1 RequireJS, Markdown, D3 bootstrap test
     textarea(id="text-input", oninput="this.editor.update()", rows="6", cols="70") 
-      = Editor
-      Type **Markdown** here.
+      | = Editor
+      | Type **Markdown** here.
+    p Below should be a HTML preview of the Markdown document
     div#preview
-    script(src="/script/markdown.js")
-    script(src="/script/markdown-editor.js")
+    p Below a chart should render (from app/dashboard)
+    div#chart
+
+    div.footer
+      script(id="requirejs-2.1.10", data-main="/script/dotmpe-requirejs-app.js",
+        src="//cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js")
 
 

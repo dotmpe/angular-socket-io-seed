@@ -1,6 +1,6 @@
 node_modules/
 public/components/
-.*.sw[pon]
+.*sw[pon]
 *.orig
 config/config.js
 config/imager.js
