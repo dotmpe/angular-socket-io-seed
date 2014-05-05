@@ -7,8 +7,8 @@ angular
     'ngRoute',
 
     'trojan.controllers',
-    'trojan.filters',
     'trojan.services',
+    'trojan.filters',
     'trojan.directives',
 
     // 3rd party dependencies
@@ -33,8 +33,8 @@ angular
         templateUrl: '/trojan/view/post/post',
         controller: 'PostCtrl'
       })
-      .when('/*', {
-      //.otherwise({
+      //.when('/', {
+      .otherwise({
         redirectTo: '/index'
       });
 
