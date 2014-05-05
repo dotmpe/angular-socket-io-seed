@@ -5,9 +5,10 @@ AngularJS + Socket IO, Express, Node
 
 Seed project
 -------------
-Forked from https://github.com/btford/angular-socket-io-seed
+Initial master forked from https://github.com/btford/angular-socket-io-seed
+After some experimental features, mongoose_demo was imported from ...
+RequireJS was merged onto f_markdown and could be needed elsewhere.
 
-XXX: this is a merge with mongoose demo, see branche docs below.
 
 Frontend
   - AngularJS
@@ -94,6 +95,14 @@ Fork: mongoose_demo
 
   There is an Angular app called 'trojan' here.
 
+  Feature: f_markdown
+    - First feature branch for mongoose_demo. 
+    - Create a client-side markdown editor. Needs RequireJS.
+
+  Feature: f_orm
+    - TODO: continue mongoose_demo conversion here when frontend architecture is satisfied,
+      at f_markdown.
+
 
 Features
 ~~~~~~~~~
@@ -145,5 +154,6 @@ See app/main.txt for more info on application paths.
 The paths for extensions are in the same tree here, but
 perhaps as installable they will end up as the list given in the previous
 section.
+
 
 
