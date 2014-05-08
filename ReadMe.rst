@@ -1,5 +1,5 @@
-AngularJS + Socket IO, Express, Node
-=======================================
+AngularJS, CoffeeScript, RequireJS + NodeJS, Socket IO, Express
+===============================================================
 :created: 2014-04-19
 :url: git@github.com:dotmpe/angular-socket-io-seed.git
 
@@ -14,6 +14,8 @@ Frontend
   - AngularJS
   - JQuery & Bootstrap
   - Templates through Jade backend?
+  - RequireJS 
+  - CoffeeScript
 
 Backend
   - Node.js
@@ -68,6 +70,7 @@ master
     - Started feature branch  for coffeescript. 
     - Working for backend, need to fix loading in frontend.
     - Merged requirejs refactoring here, see if/what syntaxes this can support.
+    - Added require-cs, now has working client-side coffescripts.
 
   Feature: f_tumblr
     - Started feature branch for tumblr.
