@@ -1,0 +1,48 @@
+doctype html
+html(lang='en', xmlns='http://www.w3.org/1999/xhtml')
+  head
+    title
+      Backbone ToDo
+    link(rel="stylesheet",href="/style/node-backbone-todo-example.css")
+  body
+    div#todoapp
+      header
+        h1 Todos
+        input#new-todo(type="text",placeholder="What needs to be done?")
+      section#main(style="display:none;")
+        input#toggle-all(type="checkbox")
+        label(for="toggle-all") Mark all as complete
+        ul#todo-list
+      footer(style="display: none;")
+        a#clear-completed Clear completed
+        div#todo-count
+
+    div.footer
+      script(id="requirejs-2.1.10", data-main="/script/node-backbone-todo-example.js",
+        src="//cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js")
+
+      script(type="text/template",id="item-template")
+        | <div class="view">
+        |   <input class="toggle" type="checkbox" <%= done ? 'checked="checked"' : '' %> />
+        |   <label><%- title %></label>
+        |   <a class="destroy"></a>
+        | </div>
+        | <input class="edit" type="text" value="<%- title %>" />
+
+      script(type="text/template",id="stats-template")
+        | <% if (done) { %>
+        |   <a id="clear-completed">Clear <%= done %> completed <%= done == 1 ? 'item' : 'items' %></a>
+        | <% } %>
+        | <div class="todo-count"><b><%= remaining %></b> <%= remaining == 1 ? 'item' : 'items' %> left</div>
+
+    div#credits
+      | Created by
+      br
+      a(href="http://jgn.me/") Jérôme Gravel-Niquet
+      | .
+      br 
+      | Rewritten by: 
+      a(href="http://addyosmani.github.com/todomvc") TodoMVC
+      | .
+
+

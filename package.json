@@ -1,34 +1,73 @@
 {
-  "name": "nodejs-express-socketio-demo-mpe",
+  "name": "nodejs-express-socketio-ng-demo-mpe",
   "description": "Work in progress seed project. ",
   "keywords": [
     "express",
-    "socket.io",
+    "socketio",
+    "orm",
+    "oauth",
     "demo"
   ],
-  "version": "0.0.0",
+  "version": "0.0.1",
   "private": true,
   "license": "GPLv3",
   "author": "Berend (.mpe) <dev@dotmpe.com>",
   "contributors": [
+    {
+      "name": "Madhusudhan Srinivasa",
+      "email": "madhums8@gmail.com"
+    }
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dotmpe/angular-socketio-seed.git"
+  },
   "engines": {
     "node": "0.10.x",
     "npm": "1.2.x"
   },
   "scripts": {
-    "start": "NODE_ENV=dev nodemon server.js"
+    "start": "NODE_ENV=development nodemon server.js",
+    "test": "NODE_ENV=test mocha --reporter spec --timeout 10000 test/test-*.js"
   },
   "dependencies": {
-    "socket.io": "latest",
-    "jade": "latest",
-    "express": "~3.4.x",
-    "tumblr": "~0.4.1",
-    "underscore": "latest",
+    "LiveScript": "latest",
+    "async": "latest",
+    "body-parser": "^1.0.2",
+    "bookshelf": "^0.6.10",
     "coffee-script": "latest",
-    "LiveScript": "latest"
+    "compression": "^1.0.2",
+    "connect-flash": "latest",
+    "connect-mongo": "latest",
+    "cookie-parser": "^1.0.1",
+    "csurf": "^1.1.0",
+    "express": "^4.1.1",
+    "forever": "latest",
+    "imager": "latest",
+    "jade": "latest",
+    "knex": "^0.5.13",
+    "markdown-js": "0.0.3",
+    "method-override": "^1.0.0",
+    "mongoose": "latest",
+    "morgan": "^1.0.0",
+    "notifier": "latest",
+    "passport": "latest",
+    "passport-facebook": "latest",
+    "passport-github": "latest",
+    "passport-google-oauth": "latest",
+    "passport-linkedin": "latest",
+    "passport-local": "latest",
+    "passport-twitter": "latest",
+    "socket.io": "latest",
+    "sqlite3": "^2.2.3",
+    "underscore": "latest",
+    "view-helpers": "latest",
+    "tumblr": "~0.4.1",
+    "winston": "latest"
   },
   "devDependencies": {
+    "supertest": "latest",
+    "should": "latest",
     "mocha": "latest",
     "nodemon": "latest"
   }

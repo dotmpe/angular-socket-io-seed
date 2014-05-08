@@ -1,0 +1,31 @@
+extends ../layouts/base
+
+block main
+  h1= title
+
+block content
+  p This is the home page.
+
+  p There is an angular client at 
+    a(href="/trojan/#/") /client
+
+  p There are require js apps at
+    a(href="/mpe/markdown") /mpe/markdown
+    a(href="/mpe/backbone") /mpe/backbone
+
+block footer
+  #footer
+    include ../includes/footer
+
+    .container
+      ul.nav.navbar-nav.navbar-right
+        li
+          iframe(style="border: 0; margin: 0 0 0 0; padding: 15px 0 0 15px;", src="https://www.gittip.com/madhums/widget.html", width="60pt", height="45pt")
+        li
+          iframe(src="http://ghbtns.com/github-btn.html?user=madhums&repo=node-express-mongoose-demo&type=watch&count=true", allowtransparency="true", frameborder="0", scrolling="0", width="110", height="45", style="padding: 15px 0 0 15px;")
+        li
+          iframe(src="http://ghbtns.com/github-btn.html?user=madhums&repo=node-express-mongoose-demo&type=fork&count=true", allowtransparency="true", frameborder="0", scrolling="0", width="110", height="45", style="padding: 15px 0 0 15px;")
+        li
+          a.travis(href="https://travis-ci.org/madhums/node-express-mongoose-demo", target="_blank", title="travis-ci build")
+            img(src="https://travis-ci.org/madhums/node-express-mongoose-demo.png?branch=master")
+

@@ -1,6 +1,8 @@
 node_modules/
-public/bower_components/
-.*.sw[pon]
+public/components/
+.*sw[pon]
 *.orig
 config/config.js
+config/imager.js
 .DS_Store
+www-build/

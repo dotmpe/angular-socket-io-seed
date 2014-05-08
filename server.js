@@ -10,10 +10,10 @@
 require('coffee-script/register');
 /* Enable LiveScript */
 require('LiveScript')
-
 // XXX just testing formats, not sure how everything turns out
 
-var express = require('express')
+var express = require('express'),
+	passport = require('passport')
 
 // Load configurations
 // if test env, load example file
@@ -22,6 +22,10 @@ var env = process.env.NODE_ENV || 'dev'
 
 // bootstrap <module>
 //require('./config/module')(module, config)
+require('./config/data')(config)
+
+// bootstrap passport config
+require('./config/passport')(passport, config)
 
 // create express and socket server
 var app = module.exports = express()
@@ -33,16 +37,23 @@ var io = require('socket.io').listen(server)
 io.sockets.on('connection', require('./config/ng/socket'));
 
 // express settings
-require('./config/express')(app, config)
+require('./config/express')(app, config, passport)
 
 // Bootstrap routes
-require('./config/routes')(app)
+require('./config/routes')(app, passport)
+
+// Module try-out
+require('./config/modules')(config, app)
+// XXX want to look for some middleware to do dynamic routing/loading
+// ie. to prevent loading unneeded parts and keeping everything in memory,
+// to have a server footprint that adapts to current requests.
+// This should allow unused parts, ie. nice for prototyping and development
+
 
 // Start ...
 server.listen(app.get('port'), function () {
 	console.log('Express server listening on port ' + app.get('port'));
 });
-
 
 
 // expose app
