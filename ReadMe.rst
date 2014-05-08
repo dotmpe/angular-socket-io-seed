@@ -65,9 +65,9 @@ master
     - Compare against SocketStream stack.
 
   Feature: f_coffee
-
     - Started feature branch  for coffeescript. 
     - Working for backend, need to fix loading in frontend.
+    - Merged requirejs refactoring here, see if/what syntaxes this can support.
 
   Feature: f_tumblr
     - Started feature branch for tumblr.
@@ -95,12 +95,19 @@ Fork: mongoose_demo
 
   There is an Angular app called 'trojan' here.
 
+  Merged RequireJS seed here? Or one of the feature branches.
+  Need to fix coffee-script, other frontend features
+  and get back here.
+
   Feature: f_markdown
     - First feature branch for mongoose_demo. 
     - Create a client-side markdown editor. Needs RequireJS.
   
   Feature: f_backbone
     - need to get to the bare metal: xhr, dom and sync, fetch, etc.
+    - added example, trying to choose paths to let various projects coexist.
+      using as monolithic project right now.
+    - 2014-05-08 merged into f_coffee
 
 Features
 ~~~~~~~~~
