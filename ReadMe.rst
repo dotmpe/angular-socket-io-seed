@@ -31,7 +31,7 @@ Installation::
   npm install -g nodemon forever mocha
   npm install 
   cp config/config.example.js config/config.js
-  cp config/imager.example.js config/imager.js
+  #cp config/imager.example.js config/imager.js
 
 The global install is not really required here.
 nodemon is used by npm start scripts, you will need to adjust the path there
@@ -59,8 +59,15 @@ master
   - Install CSS/JS using bower to public folder,
     no other asset management; paths directly to Jade.
 
+<<<<<<< HEAD
   ToDo:
     - Need RequireJS at frontend.
+=======
+  Subbranches have fixed various wanted features.
+  Need to get back to master once some ORM starts rolling.
+
+  ToDo:
+>>>>>>> master
     - Would want coffeescript/livescript at frontend.
     - Need to figure out how to do passport with angular, 
       look at what socket.io+angular does.
