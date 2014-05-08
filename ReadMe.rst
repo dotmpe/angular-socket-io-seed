@@ -119,6 +119,13 @@ Fork: mongoose_demo
       using as monolithic project right now.
     - 2014-05-08 merged into f_coffee
 
+  Feature: f_orm
+    - Fix persistence. Not sure if I want mongodb or redis, gonna get Sqlite
+      first for easy prototyping.
+
+      First look at frontend. See f_backbone, f_marionette.
+
+
 Features
 ~~~~~~~~~
 
