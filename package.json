@@ -1,11 +1,11 @@
 {
-  "name": "nodejs-express-mongoose-ng-demo-mpe",
+  "name": "nodejs-express-socketio-ng-demo-mpe",
   "description": "Based on MongoDB/NodeJS Express demo. Having a look at angular/socketio and ways to do dynamic routing/views",
   "keywords": [
     "express",
-    "mongoose",
-    "mongodb",
-    "passport",
+    "socketio",
+    "orm",
+    "oauth",
     "demo"
   ],
   "version": "0.0.1",

@@ -11,7 +11,8 @@ var paths = {
 	"underscore.string": "//cdnjs.cloudflare.com/ajax/libs/underscore.string/2.3.3/underscore.string.min",
 	"d3": "//cdnjs.cloudflare.com/ajax/libs/d3/3.4.2/d3.min",
 	"rickshaw": "//cdnjs.cloudflare.com/ajax/libs/rickshaw/1.4.6/rickshaw.min",
-	"markdown" : "/script/markdown"
+	"markdown" : "/script/markdown",
+	backbone: "//cdnjs.cloudflare.com/ajax/libs/backbone.js/1.1.2/backbone-min"
 }
 devPaths = {
 	"app": "../dotmpe-requirejs-app",
@@ -22,7 +23,8 @@ devPaths = {
 	"underscore.string": "//cdnjs.cloudflare.com/ajax/libs/underscore.string/2.3.3/underscore.string.min",
 	"d3": "//cdnjs.cloudflare.com/ajax/libs/d3/3.4.2/d3",
 	"rickshaw": "//cdnjs.cloudflare.com/ajax/libs/rickshaw/1.4.6/rickshaw",
-	"markdown" : "//raw.githubusercontent.com/toopay/bootstrap-markdown/master/js/bootstrap-markdown"
+	"markdown" : "//raw.githubusercontent.com/toopay/bootstrap-markdown/master/js/bootstrap-markdown",
+	backbone: "//cdnjs.cloudflare.com/ajax/libs/backbone.js/1.1.2/backbone-min"
 }; 
 requirejs.config({
 	baseUrl: "/script/lib",

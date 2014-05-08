@@ -98,7 +98,9 @@ Fork: mongoose_demo
   Feature: f_markdown
     - First feature branch for mongoose_demo. 
     - Create a client-side markdown editor. Needs RequireJS.
-
+  
+  Feature: f_backbone
+    - need to get to the bare metal: xhr, dom and sync, fetch, etc.
 
 Features
 ~~~~~~~~~
