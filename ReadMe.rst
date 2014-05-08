@@ -33,8 +33,10 @@ master
   - Install CSS/JS using bower to public folder,
     no other asset management; paths directly to Jade.
 
+  Subbranches have fixed various wanted features.
+  Need to get back to master once some ORM starts rolling.
+
   ToDo:
-    - Need RequireJS at frontend.
     - Would want coffeescript/livescript at frontend.
     - Need to figure out how to do passport with angular, 
       look at what socket.io+angular does.
