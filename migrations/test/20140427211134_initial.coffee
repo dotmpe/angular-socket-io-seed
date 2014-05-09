@@ -1,4 +1,4 @@
-models = require '../app/models'
+models = require '../../app/models'
 
 exports.up = (knex, Promise) -> 
 	return Promise.all([

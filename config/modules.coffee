@@ -8,39 +8,34 @@ _ = require 'underscore'
 
 
 class Module
+	# Object to hold paths and loaded controllers
 	constructor: (@name, @config) ->
 	configure: (extroot) ->
 		@moduleRoot = path.join extroot, @name
 		@viewPath = path.join @moduleRoot, 'views'
+		@modelPath = path.join @moduleRoot, 'models'
 		@controllerPath = path.join @moduleRoot, 'controllers'
 	apply: (app, io) ->
 		@handlers = _.extend(
+			# load module controller
+			require( @controllerPath )(@)
+			# extend with convenience function
 			redirect: (path) ->
 				(req, res) ->
 					res.redirect(path)
-			require( @controllerPath )(@)
 		)
-		@routes = require('./routes.'+@name)(app, io, @)
+		# initialize route config for this module
+		require('./routes.'+@name)(app, io, @)
 
 
 module.exports = (config, app, io) ->
 
-	# XXX could insert some middleware to look up module, assuming we could
-	# 	update the router while its running.
-	#app.use (req, res, next) ->
-	#	routes = util.module_routes('../config/routes.node-markdown-mpe')
-	#	console.log(routes)
-	#	next()
-
-	s = []
+	modules = []
 	extroot = path.join config.root, 'app', 'ext'
 	fs.readdir extroot, (files, dirs) ->
 		for name in dirs
 			module = new Module( name, config )
 			module.configure extroot
 			module.apply app, io 
-			s.push module
-
-	#console.log [this,s]
-
-	return s
+			modules.push module
+	return modules

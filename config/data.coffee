@@ -14,7 +14,7 @@ module.exports = ( config ) ->
 	SQLiteBase.plugin 'registry'
 	models.user.define(SQLiteBase)
 	models.article.define(SQLiteBase)
-	return session: SQLiteBase
+	#return session: SQLiteBase
 
 	###
 		knex = Bookshelf.initialize(

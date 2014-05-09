@@ -1,15 +1,21 @@
 default: version
 	./node_modules/.bin/knex
 
+version: D := test
 version:
-	./node_modules/.bin/knex migrate:currentVersion
+	DBNAME=$(D) ./node_modules/.bin/knex migrate:currentVersion
 
+latest: D := test
 latest:
-	./node_modules/.bin/knex migrate:latest
+	DBNAME=$(D) ./node_modules/.bin/knex migrate:latest
 
-make: N := 
+make: D := test
+make: NAME := 
+make: N ?= $(NAME)
 make:
-	./node_modules/.bin/knex migrate:make $(N)
+	DBNAME=$(D) ./node_modules/.bin/knex migrate:make $(N)
 
+rollback: D := test
 rollback:
-	./node_modules/.bin/knex migrate:rollback
+	DBNAME=$(D) ./node_modules/.bin/knex migrate:rollback
+

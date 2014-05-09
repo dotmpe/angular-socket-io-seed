@@ -62,15 +62,10 @@ master
   - Install CSS/JS using bower to public folder,
     no other asset management; paths directly to Jade.
 
-<<<<<<< HEAD
-  ToDo:
-    - Need RequireJS at frontend.
-=======
   Subbranches have fixed various wanted features.
   Need to get back to master once some ORM starts rolling.
 
   ToDo:
->>>>>>> master
     - Would want coffeescript/livescript at frontend.
     - Need to figure out how to do passport with angular, 
       look at what socket.io+angular does.
@@ -129,6 +124,10 @@ Fork: mongoose_demo
 
       First look at frontend. See f_backbone, f_marionette.
 
+  Feature: f_warehouse
+    - Knex and Bookshelf is nice and flexible, but lets try to get some
+      backbone tables to go out of the box with Warehouse running on an 
+      sqlite3 database.
 
 Features
 ~~~~~~~~~
