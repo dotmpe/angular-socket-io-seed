@@ -64,11 +64,5 @@
     "view-helpers": "latest",
     "tumblr": "~0.4.1",
     "winston": "latest"
-  },
-  "devDependencies": {
-    "supertest": "latest",
-    "should": "latest",
-    "mocha": "latest",
-    "nodemon": "latest"
   }
 }
