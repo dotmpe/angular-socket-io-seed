@@ -1,4 +1,6 @@
+path = require 'path'
 
-exports.index = (req, res, next) ->
-	res.render('../ext/x-node-coffeescript-mpe/views/index')
+module.exports = (module) ->
+	mpe_x_coffeescript: (req, res, next) ->
+		res.render(path.join module.viewPath,'index')
 

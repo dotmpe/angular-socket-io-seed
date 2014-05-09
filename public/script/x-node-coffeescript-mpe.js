@@ -7,8 +7,7 @@ paths = {
   backbone: "//cdnjs.cloudflare.com/ajax/libs/backbone.js/1.1.2/backbone-min",
 	'backbone.localstorage': "//raw.githubusercontent.com/jeromegn/Backbone.localStorage/master/backbone.localStorage",
   'coffee-script': '//cdnjs.cloudflare.com/ajax/libs/coffee-script/1.7.1/coffee-script.min',
-  'cs': //'//raw.github.com/jashkenas/coffee-script/master/extras/coffee-script'
-  	'//raw.github.com/jrburke/require-cs/latest/cs'
+  'cs': '//raw.github.com/jrburke/require-cs/latest/cs'
 }; 
 requirejs.config({
 	baseUrl: "/script/lib",
@@ -17,11 +16,6 @@ requirejs.config({
 		backbone: {exports:"Backbone"}
 	}, 
 	packages: [
-//		{ name: 'cs', location: 'require-cs', main: 'cs' },
-//		{ name: 'coffee-script', main: 'index' }
 	]
 });
-define(['coffee-script', 'cs'], function() {
-  require(["cs!/script/x-node-coffeescript-mpe/main"], function() {
-  });
-});
+require(["cs!/script/x-node-coffeescript-mpe/main"])

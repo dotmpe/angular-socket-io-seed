@@ -17,6 +17,9 @@ Frontend
   - RequireJS 
   - CoffeeScript
 
+    TODO: read more about ``btford.socket-io`` in 
+      ``public/bower_components/angular-socket-io/README.md``
+
 Backend
   - Node.js
   - Socket IO
@@ -89,6 +92,7 @@ master
 
   Feature: f_passport
       - Looking at passport module for authentication, tumblr module.
+
 
 Fork: mongoose_demo
   Merged in mongoose-demo seed. 

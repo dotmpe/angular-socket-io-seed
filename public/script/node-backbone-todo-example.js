@@ -15,3 +15,4 @@ requirejs.config({
 	}
 });
 require(["app/main"]);
+

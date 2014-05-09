@@ -6,11 +6,9 @@ async = require('async')
 
 # Controllers
 users = require('../app/controllers/users')
-	, articles = require('../app/controllers/articles')
-	, home = require('../app/controllers/home')
-	, auth = require('./middlewares/authorization')
-	, ngroutes = require('./ng') #
-	, ngapi = require('./ng/api')
+articles = require('../app/controllers/articles')
+home = require('../app/controllers/home')
+auth = require('./middlewares/authorization')
 
 articleAuth = [auth.requiresLogin, auth.article.hasAuthorization]
 commentAuth = [auth.requiresLogin, auth.comment.hasAuthorization]
@@ -20,31 +18,16 @@ redirect = (path) ->
 		res.redirect(path)
 
 module.exports = ( app, passport ) ->
-	# Angular server-side routes
-
-	# XXX: html5 routing means we have two routers? client vs. server.. 
-	# thus need to find proper redirect method, ie /client/index?redir=<name> 
-	# also, refreshing/requesting client-side routes result in request to server 
-	# and thus default redirect(s) ... 
-	# Front end is not the exciting, just need one page. */
-	app.route('/trojan/:page').all(ngroutes.main)
-	app.route('/trojan/').all(ngroutes.main)
-	app.route('/trojan').all(redirect('/trojan/'))
-	# Angular app (server-side) views */
-	app.route('/trojan/view/:view/:action').all(ngroutes.partials)
-	# angular api
-	app.route('/api/client/name').all(ngapi.name)
 
 	# Express routes (backend only) 
 	# Home routes
 	app.route('/home').all(home.home)
 	app.route('/').all(redirect('/home'))
+
+	# Some Bower components may have path hardcoded (ie. docs, nothing serious)
 	app.route(/^\/bower_component\/(.*)$/).all((req, res)->
 		res.redirect('/components/'+req.params[0])
 	)
-
-	# redirect all others to the index (HTML5 history)
-	# XXX app.get '*', ngroutes.index
 
 	# User module 
 	app.get('/login', users.login)
@@ -128,4 +111,7 @@ module.exports = ( app, passport ) ->
 	# tag routes
 	tags = require('../app/controllers/tags')
 	app.get('/tags/:tag', tags.index)
+
+	# Default route
+	# XXX app.get '*', ngroutes.index
 
