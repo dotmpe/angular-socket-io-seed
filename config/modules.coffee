@@ -7,7 +7,23 @@ fs = require 'fs'
 _ = require 'underscore'
 
 
-module.exports = (config, app) ->
+class Module
+	constructor: (@name, @config) ->
+	configure: (extroot) ->
+		@moduleRoot = path.join extroot, @name
+		@viewPath = path.join @moduleRoot, 'views'
+		@controllerPath = path.join @moduleRoot, 'controllers'
+	apply: (app, io) ->
+		@handlers = _.extend(
+			redirect: (path) ->
+				(req, res) ->
+					res.redirect(path)
+			require( @controllerPath )(@)
+		)
+		@routes = require('./routes.'+@name)(app, io, @)
+
+
+module.exports = (config, app, io) ->
 
 	# XXX could insert some middleware to look up module, assuming we could
 	# 	update the router while its running.
@@ -16,13 +32,15 @@ module.exports = (config, app) ->
 	#	console.log(routes)
 	#	next()
 
+	s = []
 	extroot = path.join config.root, 'app', 'ext'
 	fs.readdir extroot, (files, dirs) ->
 		for name in dirs
-			config = _.extend( config, moduleRoot: path.join extroot, name )
-			controllers = require(path.join(config.moduleRoot, 'controllers'))
-			require('./routes.'+name)(app, config, controllers)
+			module = new Module( name, config )
+			module.configure extroot
+			module.apply app, io 
+			s.push module
 
+	#console.log [this,s]
 
-
-
+	return s

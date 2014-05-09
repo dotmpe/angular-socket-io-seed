@@ -1,3 +1,4 @@
-exports.index = (req, res, next) ->
-	res.render('../ext/node-markdown-mpe/views/index')
+module.exports = (module) ->
+	mpe_markdown: (req, res, next) ->
+		res.render(module.viewPath+'/index')
 

@@ -6,13 +6,24 @@ block main
 block content
   p This is the home page.
 
-  p There is an angular client at 
-    a(href="/trojan/#/") /client
+  p Angular apps:
+  ul
+    li
+      a(href="/trojan/#/") Trojan: simple angular experiment.
+    li
+      a(href="/trojan-cs/#/") Same app in coffeescript?
 
-  p There are require js apps at
-    a(href="/mpe/markdown") /mpe/markdown
-    a(href="/examples/backbone-todo") /examples/backbone-todo
-    a(href="/mpe/x-coffeescript") /mpe/x-coffeescript
+  p Other RequireJS apps:
+  ul
+    li 
+      a(href="/mpe/markdown") Some initial RequireJS and markdown tests
+      | , not completely satisfactory. See f_markdown branch.
+    li 
+      a(href="/examples/backbone-todo") Backbone's To-Do example
+      | .
+    li 
+      a(href="/mpe/x-coffeescript") Running coffee-script
+      | , client-side using RequireJS.
 
 block footer
   #footer

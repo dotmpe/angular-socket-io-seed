@@ -32,10 +32,6 @@ var app = module.exports = express()
 var server = require('http').createServer(app)
 var io = require('socket.io').listen(server)
 
-// Initialize Socket.io Communication: 
-// as soon as client connects set up backend messages (push events)
-io.sockets.on('connection', require('./config/ng/socket'));
-
 // express settings
 require('./config/express')(app, config, passport)
 
@@ -43,12 +39,15 @@ require('./config/express')(app, config, passport)
 require('./config/routes')(app, passport)
 
 // Module try-out
-require('./config/modules')(config, app)
+var modules = require('./config/modules')(config, app, io)
 // XXX want to look for some middleware to do dynamic routing/loading
 // ie. to prevent loading unneeded parts and keeping everything in memory,
 // to have a server footprint that adapts to current requests.
 // This should allow unused parts, ie. nice for prototyping and development
 
+app.route('/admin').all(function(req, res, next) {
+  console.log(modules);
+});
 
 // Start ...
 server.listen(app.get('port'), function () {

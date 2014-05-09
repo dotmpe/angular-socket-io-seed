@@ -1,4 +1,6 @@
-exports.index = (req, res, next) ->
-	res.render('../ext/node-backbone-todo-example/views/index')
+path = require 'path'
+module.exports = (module) ->
+	backbone_todo_example: (req, res, next) ->
+		res.render(path.join module.viewPath,'index')
 
 
