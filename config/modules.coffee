@@ -30,6 +30,7 @@ class Module
 
 module.exports = (config, app, io) ->
 
+	# TODO: load and merge config for module
 	modules = []
 	extroot = path.join config.root, 'app', 'ext'
 	fs.readdir extroot, (files, dirs) ->

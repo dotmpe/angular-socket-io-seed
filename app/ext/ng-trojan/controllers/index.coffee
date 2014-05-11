@@ -9,6 +9,7 @@ module.exports = (module) ->
 		res.render path.join( module.viewPath, 'index', page),
 				page: title: "NCARS 0001"
 				lib: module.config.lib
+				url: base: '/trojan/'
 	
 	partials: (req, res, next) ->
 		view = req.params.view

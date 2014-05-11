@@ -2,10 +2,9 @@ doctype html
 html
   head
     meta(charset='utf8')
-    base(href='/')
+    base(href=url.base)
     title= page.title
-    link(rel='stylesheet', href='/components/bootstrap/dist/css/bootstrap.css')
-    link(rel='stylesheet', href='/components/bootstrap/dist/css/bootstrap-theme.css')
-    link(rel='stylesheet', href='/style/app.css')
+    each path in lib.css
+      link(rel='stylesheet', href=path, id=id)
   body
     block body
