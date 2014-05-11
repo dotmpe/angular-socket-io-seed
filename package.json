@@ -60,9 +60,10 @@
     "passport-twitter": "latest",
     "socket.io": "latest",
     "sqlite3": "^2.2.3",
+    "tumblr": "~0.4.1",
     "underscore": "latest",
     "view-helpers": "latest",
-    "tumblr": "~0.4.1",
+    "warehousejs": "^0.3.0",
     "winston": "latest"
   }
 }

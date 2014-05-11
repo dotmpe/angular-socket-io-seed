@@ -20,17 +20,15 @@ var express = require('express'),
 var env = process.env.NODE_ENV || 'dev'
 	, config = require('./config/config')[env]
 
-// bootstrap <module>
-//require('./config/module')(module, config)
-require('./config/data')(config)
-
 // bootstrap passport config
-require('./config/passport')(passport, config)
+//require('./config/passport')(passport, config)
 
 // create express and socket server
 var app = module.exports = express()
 var server = require('http').createServer(app)
 var io = require('socket.io').listen(server)
+
+require('./config/data')(app, config)
 
 // express settings
 require('./config/express')(app, config, passport)

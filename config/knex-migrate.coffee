@@ -1,11 +1,11 @@
 module.exports = (dbname) ->
 	(
-		test:
+		demo:
 			database:
 				client: 'sqlite3'
 				connection:
-					filename: './test.sqlite3.db'
-			directory: './migrations/test/'
+					filename: './demo.sqlite3.db'
+			directory: './migrations/demo/'
 			tableName: 'migrations'
 			extension: 'coffee'
 		bookmarks:

@@ -1,4 +1,6 @@
 module.exports = 
+
+	# Define table schema with knex
 	schema: (table) ->
 		table.text('descr').nullable()
 		table.timestamps() # created_at, updated_at
@@ -7,9 +9,10 @@ module.exports =
 			.references('id')
 			.inTable('locators')
 
+	# Create model, collection and register with Bookshelf
 	define: (Base) -> 
 		Bookmark = Base.Model.extend(
-			tableName: 'bookmarks'
+			tableName: 'bm'
 		)
 		Bookmarks = Base.Collection.extend(
 			model: Bookmark

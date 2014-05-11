@@ -1,13 +1,16 @@
 module.exports = 
 	schema: (table) ->
-		table.string('label').unique()
-		table.text('title').unique()
-		table.timestamps() # created_at, updated_at
-		table.text('href').unique()
+		table.integer('id').primary()
+		table.string('global_id').nullable().unique()
+		table.datetime('date_added').notNullable()
+		table.boolean('deleted')
+		table.datetime('date_deleted').notNullable()
+		table.text('ref').unique()
 
+	# Create model, collection and register with Bookshelf
 	define: (Base) -> 
 		Location = Base.Model.extend(
-			tableName: 'locations'
+			tableName: 'ids_lctr'
 		)
 		Locations = Base.Collection.extend(
 			model: Location
