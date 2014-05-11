@@ -2,9 +2,13 @@
 
 /* Directives */
 
-angular.module('trojan.directives', []).
-  directive('appVersion', function (version) {
-    return function(scope, elm, attrs) {
-      elm.text(version);
-    };
-  });
+define(['angularAMD'], function (angularAMD) {
+	angular.module('trojan.directives', [ ])
+		.directive('appVersion', function (version) {
+			return function(scope, elm, attrs) {
+				elm.text(version);
+			};
+		});
+}); 
+
+

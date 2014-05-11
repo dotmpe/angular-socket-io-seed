@@ -21,7 +21,10 @@
     "underscore": "latest",
     "underscore.string": "latest",
     "require-cs": "latest",
-    "coffee-script": "latest"
+    "coffee-script": "~1.7.1",
+    "etch": "git@github.com:joshontheweb/etch.git#master",
+    "angularAMD": "~0.1.0",
+    "requirejs-plugins": "git@github.com:millermedeiros/requirejs-plugins.git#master"
   },
   "authors": [
     "Berend (.mpe) <dev@dotmpe.com>"

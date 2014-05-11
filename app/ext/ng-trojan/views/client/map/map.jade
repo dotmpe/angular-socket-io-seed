@@ -1,0 +1,28 @@
+extends ../layouts/default
+
+block content
+
+  h1 Maps
+  p the current time is {{time}}
+
+  p.lead
+    | Third party Javascript API such as <a href="https://developers.google.com/maps/documentation/javascript/" target="_blank">
+    | Google Maps API</a> can be setup for on-demand loading using
+    | <code><a href="https://github.com/millermedeiros/requirejs-plugins/blob/master/src/async.js" target="_blank">async.js</a></code>
+    | RequireJS plugin as demonstrated in <code gh-link="js/scripts/service/mapServices.js"></code> wrapper.
+
+  hr
+  .main-content
+    .lead
+      |  <strong>{{title}}</strong>
+      |  Move the marker to update latitude and logitude.
+    #map-canvas(style="height:200px")
+    div
+        span.badge.badge-success
+          |  <i class="icon-resize-horizontal"></i>
+          |  latitude: {{latitude}}
+        span.badge.badge-success
+          |  <i class="icon-resize-vertical"></i>
+          |  longitude: {{longitude}}
+
+

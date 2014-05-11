@@ -39,3 +39,4 @@ module.exports = (config, app, io) ->
 			module.apply app, io 
 			modules.push module
 	return modules
+

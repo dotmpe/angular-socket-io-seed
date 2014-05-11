@@ -1,21 +1,11 @@
 extends ../layouts/default
 
 block body
-  div.ng-app-container(ng-controller='AppCtrl')
-    
-    div.ng-view-wrapper(ng-view)
+  //div.ng-app-container(ng-controller='AppCtrl')
 
-  script(src='/socket.io/socket.io.js')
-  script(src='/components/angular/angular.js')
-  script(src='/components/angular-route/angular-route.js')
-  script(src='/components/angular-socket-io/socket.js')
-  script(src='/components/jquery/dist/jquery.js')
-  script(src='/components/bootstrap/dist/js/bootstrap.js')
+  div.ng-view-wrapper(ng-view)
 
-  script(src='/script/ng-trojan/app.js')
-  script(src='/script/ng-trojan/module/services.js')
-  script(src='/script/ng-trojan/module/controllers.js')
-  script(src='/script/ng-trojan/module/filters.js')
-  script(src='/script/ng-trojan/module/directives.js')
-
+  script(
+      data-main="/script/ng-trojan.js",
+      src=lib.requirejs)
 

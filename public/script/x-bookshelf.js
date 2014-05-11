@@ -17,14 +17,16 @@ local_dev_paths = {
 	backbone: "/components/backbone/backbone",
 	"backbone.localstorage": "/components/backbone.localstorage/backbone.localStorage",
 	bootstrap: "/components/bootstrap/dist/js/bootstrap",
-	"coffee-script": "/components/coffee-script/index",
-	cs: "/components/require-cs/cs"
+	"coffee-script": "/components/coffee-script/extras/coffee-script",
+	cs: "/components/require-cs/cs",
+	etch: "/components/etch/scripts/etch"
 };
 requirejs.config({
 	baseUrl: "/script/lib",
 	paths: local_dev_paths,
 	shim: {
-		backbone: {exports:"Backbone"}
+		backbone: {exports:"Backbone"},
+    etch: { deps: ['backbone'], exports: 'etch' }
 	}
 });
 require(["cs!app/main"]);

@@ -13,20 +13,22 @@ requirejs.config({
 	baseUrl: "/script/",
 	paths: devPaths,
 	shim: { 
-		angular: { exports: 'angular' }
+		angular: { exports: 'angular' },
 	},
 	deps: [
+		"cs!./ng-coffee/app"
 	]
 });
-require([ "jquery", "socket.io", "angular",
-		"angular.route", 
-		"angular.socket-io",
-		"cs!app/controllers",
-		"cs!app/services",
-		"cs!app/filters",
-		"cs!app/directives",
-		"cs!./ng-coffee/app"
-	]);
+//require([ 
+//		"jquery", "socket.io", 
+//		"angular",
+//		"angular.route", 
+//		"angular.socket-io",
+//		"cs!app/controllers",
+//		"cs!app/services",
+//		"cs!app/filters",
+//		"cs!app/directives",
+//	]);
 /*"bootstrap",*/ 
 /*
 , "angular.route", "angular.socket-io" ])

@@ -1,6 +1,7 @@
-define ['jquery', 'backbone', 'backbone.localstorage'], ($, Backbone)->
+define ['jquery', "underscore", 'backbone', 'etch', 'backbone.localstorage'], ($, _, Backbone, etch)->
 
 	console.log 'x-Bookshelf ready'
+	console.log etch.editableInit
 
 	Location = Backbone.Model.extend
 		defaults: () ->

@@ -1,21 +1,15 @@
 'use strict';
 
-/* Angular Controllers */
+define(['angularAMD'], function (angularAMD) {
+	/* Angular Controllers */
+	var appMod = angular.module('trojan.controllers', []);
+	console.log(['appMod', appMod]);
+	appMod.controller('AppCtrl', function ($scope, socket) {
+			socket.on('send:name', function (data) {
+				$scope.name = data.name;
+			});
+		});
+	return appMod;
+}); 
 
-angular.module('trojan.controllers', []).
-  controller('AppCtrl', function ($scope, socket) {
-    socket.on('send:name', function (data) {
-      $scope.name = data.name;
-    });
-  }).
-  controller('HomeCtrl', function ($scope, socket) {
-    socket.on('send:time', function (data) {
-      $scope.time = data.time;
-    });
-  }).
-  controller('AccountCtrl', function ($scope) {
-    // write Ctrl here
-  }).
-  controller('PostCtrl', function ($scope) {
-    // write Ctrl here
-  });
+
